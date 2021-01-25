@@ -25,7 +25,7 @@ export const Designers = () => {
     <div>
       <AllProductsContainer>
         {designers.map((designer) => (
-          <ProductContainer>
+          <ProductContainer key={designer._id}>
             {console.log(`${designer._id}`)}
             <Link to={`designers/${designer._id}/products`}>
               <p>{designer.name}</p>
@@ -36,7 +36,6 @@ export const Designers = () => {
     </div>
   )
 }
-
 
 const AllProductsContainer = styled.section`
   display: flex;

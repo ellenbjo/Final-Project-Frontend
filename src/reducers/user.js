@@ -4,7 +4,7 @@ const initalState = {
   login: {
     accessToken: null,
     userId: 0,
-    name: '',
+    name: null,
     email: null,
     street: null,
     postalCode: null,
@@ -57,13 +57,15 @@ export const user = createSlice({
       state.login.statusMessage = statusMessage
     },
     setLogOut: (state) => {
+      localStorage.removeItem('accessToken');
       state.login.userId = 0
       state.login.accessToken = null
-      state.login.name = ''
-      state.login.email = ''
-      state.login.street = ''
-      state.login.postalCode = ''
-      state.login.phoneNumber = ''
+      state.login.name = null
+      state.login.email = null
+      state.login.street = null
+      state.login.postalCode = null
+      state.login.city = null
+      state.login.phoneNumber = null
       state.login.statusMessage = 'You are now logged out.'
     }
   }

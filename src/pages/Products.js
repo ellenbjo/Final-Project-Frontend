@@ -45,5 +45,3 @@ export const Products = () => {
     </ProductsPageContainer>
   )
 }
-
-

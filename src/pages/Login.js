@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 import { userLogin } from '../reducers/userThunks'
 import { AuthenticationLinks } from '../components/AuthenticationLinks'
@@ -7,6 +8,8 @@ import { Form, FormContainer, Label } from '../lib/Form'
 
 export const Login = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
+
   const accessToken = useSelector((store) => store.user.login.accessToken)
   const name = useSelector((store) => store.user.login.name)
 
@@ -18,14 +21,7 @@ export const Login = () => {
     dispatch(userLogin(email, password))
     setEmail('')
     setPassword('')
-  }
-
-  if (accessToken) {
-    return (
-      <section>
-        <h3>Welcome {name}! You are now logged in.</h3>
-      </section>
-    )
+    history.push('/users/profile')
   }
 
   return (
@@ -37,16 +33,14 @@ export const Login = () => {
           <input
             type='email'
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
+            onChange={(event) => setEmail(event.target.value)} />
         </Label>
         <Label>
           Password
           <input
             type='password'
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
+            onChange={(event) => setPassword(event.target.value)} />
         </Label>
         <button type='submit'>
           Log in

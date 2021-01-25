@@ -29,7 +29,7 @@ export const userSignup = (
         return response.json()
       })
       .then((json) => {
-        console.log(json)
+        localStorage.setItem('accessToken', json.accessToken)
         dispatch(user.actions.setUserId({ userId: json._id }))
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
         dispatch(user.actions.setName({ name: json.name }))
@@ -57,6 +57,7 @@ export const userLogin = (email, password) => {
         } return response.json()
       })
       .then((json) => {
+        localStorage.setItem('accessToken', json.accessToken)
         dispatch(user.actions.setUserId({ userId: json._id }))
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
         dispatch(user.actions.setName({ name: json.name }))
@@ -70,8 +71,8 @@ export const userLogin = (email, password) => {
   }
 }
 
-export const accessUserProfile = (id, accessToken) => {
-  const USER_PROFILE_URL = `https://ellen-final-project.herokuapp.com/users/${id}/profile`
+export const accessUserProfile = (accessToken) => {
+  const USER_PROFILE_URL = `https://ellen-final-project.herokuapp.com/users/profile`
 
   return () => {
     fetch(USER_PROFILE_URL, {

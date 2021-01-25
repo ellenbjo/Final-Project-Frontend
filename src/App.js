@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { user } from './reducers/user'
@@ -48,7 +48,7 @@ export const App = () => {
             <Route path='/signup'>
               <Signup />
             </Route>
-            <Route path='/users/:id/profile'>
+            <Route path='/users/profile'>
               <ProfilePage />
             </Route>
           </Switch>
