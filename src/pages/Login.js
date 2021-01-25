@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { userLogin } from '../reducers/userThunks'
 import { AuthenticationLinks } from '../components/AuthenticationLinks'
@@ -7,6 +7,9 @@ import { Form, FormContainer, Label } from '../lib/Form'
 
 export const Login = () => {
   const dispatch = useDispatch()
+  const accessToken = useSelector((store) => store.user.login.accessToken)
+  const name = useSelector((store) => store.user.login.name)
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -15,6 +18,14 @@ export const Login = () => {
     dispatch(userLogin(email, password))
     setEmail('')
     setPassword('')
+  }
+
+  if (accessToken) {
+    return (
+      <section>
+        <h3>Welcome {name}! You are now logged in.</h3>
+      </section>
+    )
   }
 
   return (

@@ -39,6 +39,7 @@ export const userSignup = (
         dispatch(user.actions.setCity({ city: json.city }))
         dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }))
       })
+      .catch((error) => console.log(error))
   }
 }
 
@@ -66,5 +67,27 @@ export const userLogin = (email, password) => {
         dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }))
       })
       .catch((error) => console.log(error))
+  }
+}
+
+export const accessUserProfile = (id, accessToken) => {
+  const USER_PROFILE_URL = `https://ellen-final-project.herokuapp.com/users/${id}/profile`
+
+  return () => {
+    fetch(USER_PROFILE_URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Access denied. Please login to access your profile.')
+        } return response.json()
+      })
+      .then((json) => {
+        console.log(json)
+      })
   }
 }

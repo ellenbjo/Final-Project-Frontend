@@ -14,6 +14,7 @@ import { Designers } from './pages/Designers'
 import { DesignerProducts } from './pages/DesignerProducts'
 import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
+import { ProfilePage } from './pages/ProfilePage'
 
 const reducer = combineReducers({ user: user.reducer })
 const store = configureStore({ reducer })
@@ -46,6 +47,9 @@ export const App = () => {
             </Route>
             <Route path='/signup'>
               <Signup />
+            </Route>
+            <Route path='/users/:id/profile'>
+              <ProfilePage />
             </Route>
           </Switch>
         </MainContainer>

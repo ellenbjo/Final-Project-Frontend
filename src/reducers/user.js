@@ -5,12 +5,12 @@ const initalState = {
     accessToken: null,
     userId: 0,
     name: '',
-    email: '',
-    street: '',
-    postalCode: '',
-    city: '',
-    phoneNumber: '',
-    statusMessage: ''
+    email: null,
+    street: null,
+    postalCode: null,
+    city: null,
+    phoneNumber: null,
+    statusMessage: null
   }
 }
 
