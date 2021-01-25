@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { user } from './reducers/user'
+import { cart } from './reducers/cart'
 import { Header } from './components/Header'
 import { Nav } from './components/Nav'
 import { StartPage } from './pages/StartPage'
@@ -16,7 +17,11 @@ import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 import { ProfilePage } from './pages/ProfilePage'
 
-const reducer = combineReducers({ user: user.reducer })
+const reducer = combineReducers({
+  user: user.reducer,
+  cart: cart.reducer
+})
+
 const store = configureStore({ reducer })
 
 export const App = () => {
