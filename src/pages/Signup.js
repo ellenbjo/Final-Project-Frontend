@@ -1,56 +1,92 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
+import { userSignup } from '../reducers/userThunks'
 import { AuthenticationLinks } from 'components/AuthenticationLinks'
 import { Form, FormContainer, Label } from '../lib/Form'
 
 export const Signup = () => {
+  const dispatch = useDispatch()
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [street, setStreet] = useState('')
+  const [postalCode, setPostalCode] = useState('')
+  const [city, setCity] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+
+  const handleSignup = (event) => {
+    event.preventDefault()
+    dispatch(userSignup(
+      name,
+      email,
+      password,
+      street,
+      postalCode,
+      city,
+      phoneNumber
+    ))
+  }
 
   return (
     <FormContainer>
       <AuthenticationLinks />
-      <Form>
+      <Form onSubmit={handleSignup}>
         <Label>
           Name
           <input 
-            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
           />
         </Label>
         <Label>
           Email
           <input 
-            type="text"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </Label>
         <Label>
           Password
           <input 
             type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </Label>
         <Label>
           Street
           <input 
-            type="text"
+            value={street}
+            onChange={(event) => setStreet(event.target.value)}
           />
         </Label>
         <Label>
           Postal code
-          <input 
-            type="text"
+          <input
+            value={postalCode}
+            onChange={(event) => setPostalCode(event.target.value)}
           />
         </Label>
         <Label>
           City
           <input 
-            type="text"
+            value={city}
+            onChange={(event) => setCity(event.target.value)}
           />
         </Label>
         <Label>
           Phone number
           <input 
-            type="text"
+            value={phoneNumber}
+            onChange={(event) => setPhoneNumber(event.target.value)}
           />
         </Label>
+        <button type='submit'>
+          Sign up
+        </button>
       </Form>
     </FormContainer>
 

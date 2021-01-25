@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Designers = () => {
   const [designers, setDesigners] = useState([])
 
   const fetchDesigners = () => {
-    const URL = 'http://localhost:8081/designers'
+    const URL = 'https://ellen-final-project.herokuapp.com/designers'
 
     fetch(URL)
       .then((response) => response.json())
       .then((json) => {
         setDesigners(json)
+        console.log(json)
       })
       .catch((error) => console.log(error))
   }
@@ -24,7 +26,10 @@ export const Designers = () => {
       <AllProductsContainer>
         {designers.map((designer) => (
           <ProductContainer>
-            <p>{designer.name}</p>
+            {console.log(`${designer._id}`)}
+            <Link to={`designers/${designer._id}/products`}>
+              <p>{designer.name}</p>
+            </Link>
           </ProductContainer>
         ))}
       </AllProductsContainer>

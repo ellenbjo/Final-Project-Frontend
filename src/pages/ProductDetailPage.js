@@ -8,8 +8,8 @@ export const ProductDetailPage = () => {
   const [product, setProduct] = useState([])
 
   const fetchProductDetails = (id) => {
-    const URL = `http://localhost:8081/products/${id}`
-
+    const URL = `https://ellen-final-project.herokuapp.com/products/${id}`
+    console.log(id)
     fetch(URL)
       .then((response) => response.json())
       .then((json) => {
