@@ -57,7 +57,7 @@ export const user = createSlice({
       state.login.statusMessage = statusMessage
     },
     setLogOut: (state) => {
-      localStorage.removeItem('accessToken');
+      //is it possible to also clear cart here?
       state.login.userId = 0
       state.login.accessToken = null
       state.login.name = null

@@ -32,7 +32,6 @@ export const ProductDetailPage = () => {
 
   const handleAddToCart = () => {
     dispatch(cart.actions.addProduct({
-      quantity: 1,
       id: product._id,
       name: product.name,
       imageUrl: product.imageUrl,

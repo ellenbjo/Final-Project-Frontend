@@ -8,16 +8,16 @@ export const CartItem = ({ product }) => {
   const dispatch = useDispatch()
 
   const increaseQuantity = () => {
-    dispatch(cart.actions.addProduct({ id: product.id }))
+    dispatch(cart.actions.addProduct(product))
   }
 
   const reduceQuantity = () => {
-    dispatch(cart.actions.removeProduct({ id: product.id }))
+    dispatch(cart.actions.removeProduct(product))
   }
 
   return (
     <ProductArticle>
-      <ProductImage src={product.imageUrl} alt={product.name}/>
+      <ProductImage src={product.imageUrl} alt={product.name} />
       <ProductInfo>
         <p>{product.name}</p>
         <p>{product.price} kr</p>

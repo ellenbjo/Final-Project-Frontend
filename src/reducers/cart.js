@@ -20,7 +20,7 @@ export const cart = createSlice({
       const existingProduct = state.products.find((product) => product.id === action.payload.id)
 
       if (existingProduct && existingProduct.quantity === 1) {
-        state.products = state.products.filter((product) => product._id !== action.payload.id)
+        state.products = state.products.filter((product) => product.id !== action.payload.id)
       } else if (existingProduct) {
         existingProduct.quantity -= 1
       }
