@@ -27,6 +27,7 @@ export const DesignerProducts = () => {
   useEffect(() => {
     fetchProducts(designerId)
   }, [designerId])
+
   return (
     <ProductsPageContainer>
       <h2>PRODUCTS</h2>

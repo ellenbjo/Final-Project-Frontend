@@ -1,17 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 export const Header = () => {
+  const accessToken = useSelector((store) => store.user.login.accessToken)
+
   return (
     <CustomHeader>
       <Link to='/'>
         <h2>COMPANY NAME</h2>
       </Link>
       <List>
+        <Link to='/users/profile'>
+          <LinkText>My Page</LinkText>
+        </Link>
+        {!accessToken &&
         <Link to='/login'>
           <LinkText>Log in</LinkText>
-        </Link>
+        </Link>}
         <Link to='/cart'>
           <LinkText>Cart</LinkText>
         </Link>

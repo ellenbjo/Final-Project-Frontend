@@ -17,6 +17,7 @@ import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 import { ProfilePage } from './pages/ProfilePage'
 import { Cart } from './pages/Cart'
+import { NotFound } from './pages/NotFound'
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -60,6 +61,11 @@ export const App = () => {
             <Route path='/cart'>
               <Cart />
             </Route>
+            <Route path='/404'>
+              <NotFound />
+            </Route>
+            <Redirect
+              to='/404' />
           </Switch>
         </MainContainer>
       </BrowserRouter>

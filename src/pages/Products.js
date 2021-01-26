@@ -25,7 +25,7 @@ export const Products = () => {
 
   useEffect(() => {
     fetchProducts()
-  }, [])
+  }, [setProducts])
 
   return (
     <ProductsPageContainer>

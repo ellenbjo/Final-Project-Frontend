@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
@@ -7,6 +7,8 @@ import { cart } from '../reducers/cart'
 
 export const ProductDetailPage = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
+
   const { productId } = useParams()
   const [id, setId] = useState('')
   const [product, setProduct] = useState([])
@@ -38,6 +40,10 @@ export const ProductDetailPage = () => {
     }))
   }
 
+  const handleGoBack = () => {
+    history.goBack()
+  }
+
   return (
     <ProductPageContainer>
       <ProductWrapper>
@@ -47,6 +53,9 @@ export const ProductDetailPage = () => {
           <p>{product.price} kr</p>
           <button type="button" onClick={handleAddToCart}>
             Add to cart
+          </button>
+          <button type="button" onClick={handleGoBack}>
+            Continue Shopping
           </button>
         </div>
       </ProductWrapper>
