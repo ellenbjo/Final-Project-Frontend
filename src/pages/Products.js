@@ -5,7 +5,8 @@ import {
   ProductsPageContainer,
   AllProductsContainer,
   ProductCard,
-  ProductImage
+  ProductImage,
+  ImageWrapper
 } from '../lib/Products'
 
 export const Products = () => {
@@ -35,7 +36,9 @@ export const Products = () => {
         {products.map((product) => (
           <ProductCard key={product._id}>
             <Link to={`products/${product._id}`}>
-              <ProductImage src={product.imageUrl} alt={product.name} />
+              <ImageWrapper>
+                <ProductImage src={product.imageUrl} alt={product.name} />
+              </ImageWrapper>
               <p>{product.name}</p>
               <p>{product.price} kr</p>
             </Link>

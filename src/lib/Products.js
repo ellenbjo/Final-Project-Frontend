@@ -26,7 +26,6 @@ export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
   margin: 10px;
   @media (min-width: 700px){
     width: 30%;
@@ -39,6 +38,14 @@ export const ProductCard = styled.div`
 
 export const ProductImage = styled.img`
   width: 100%;
-  height: 80%;
+  height: 100%;
   object-fit: cover;
+  transition: all .5s ease;
+  :hover {
+    transform: scale(1.1);
+  }
+`
+export const ImageWrapper = styled.div`
+  height: 80%;
+  overflow: hidden; 
 `
