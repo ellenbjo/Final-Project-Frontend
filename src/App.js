@@ -1,6 +1,12 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { 
+  createStore,
+  combineReducers,
+  applyMiddleware,
+  compose
+} from '@reduxjs/toolkit'
+import thunk from 'redux-thunk'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -24,7 +30,27 @@ const reducer = combineReducers({
   cart: cart.reducer
 })
 
-const store = configureStore({ reducer })
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+//retrieve the local storage and use it as the inital state
+const persistedStateJSON = localStorage.getItem('reduxState')
+let persistedState = {}
+
+if (persistedStateJSON) {
+  persistedState = JSON.parse(persistedStateJSON)
+}
+
+//using the persistedState instead of the initalstate
+const store = createStore(
+  reducer,
+  persistedState,
+  composeEnhancer(applyMiddleware(thunk))
+)
+
+//Store the state in localstorage for any redux state change
+store.subscribe(() => {
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+})
 
 export const App = () => {
   return (
