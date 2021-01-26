@@ -29,7 +29,6 @@ export const userSignup = (
         return response.json()
       })
       .then((json) => {
-        localStorage.setItem('accessToken', json.accessToken)
         dispatch(user.actions.setUserId({ userId: json._id }))
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
         dispatch(user.actions.setName({ name: json.name }))
@@ -57,7 +56,6 @@ export const userLogin = (email, password) => {
         } return response.json()
       })
       .then((json) => {
-        localStorage.setItem('accessToken', json.accessToken)
         dispatch(user.actions.setUserId({ userId: json._id }))
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
         dispatch(user.actions.setName({ name: json.name }))
