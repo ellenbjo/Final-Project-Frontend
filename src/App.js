@@ -16,6 +16,7 @@ import { DesignerProducts } from './pages/DesignerProducts'
 import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 import { ProfilePage } from './pages/ProfilePage'
+import { Cart } from './pages/Cart'
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -55,6 +56,9 @@ export const App = () => {
             </Route>
             <Route path='/users/profile'>
               <ProfilePage />
+            </Route>
+            <Route path='/cart'>
+              <Cart />
             </Route>
           </Switch>
         </MainContainer>

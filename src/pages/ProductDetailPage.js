@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
+import { cart } from '../reducers/cart'
+
 export const ProductDetailPage = () => {
+  const dispatch = useDispatch()
   const { productId } = useParams()
   const [id, setId] = useState('')
   const [product, setProduct] = useState([])
@@ -24,6 +28,16 @@ export const ProductDetailPage = () => {
     fetchProductDetails(productId)
   }, [productId])
 
+  const handleAddToCart = () => {
+    dispatch(cart.actions.addProduct({
+      quantity: 1,
+      id: product._id,
+      name: product.name,
+      imageUrl: product.imageUrl,
+      price: product.price
+    }))
+  }
+
   return (
     <ProductPageContainer>
       <ProductWrapper>
@@ -31,6 +45,9 @@ export const ProductDetailPage = () => {
         <div>
           <h3>{product.name}</h3>
           <p>{product.price} kr</p>
+          <button type="button" onClick={handleAddToCart}>
+            Add to cart
+          </button>
         </div>
       </ProductWrapper>
     </ProductPageContainer>

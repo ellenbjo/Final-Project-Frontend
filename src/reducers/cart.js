@@ -8,7 +8,7 @@ export const cart = createSlice({
   },
   reducers: {
     addProduct: (state, action) => {
-      const existingProduct = state.products.find((product) => product._id === action.payload.id)
+      const existingProduct = state.products.find((product) => product.id === action.payload.id)
 
       if (existingProduct) {
         existingProduct.quantity += 1
