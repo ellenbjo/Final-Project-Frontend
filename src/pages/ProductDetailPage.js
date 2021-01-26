@@ -10,7 +10,6 @@ export const ProductDetailPage = () => {
   const history = useHistory()
 
   const { productId } = useParams()
-  const [id, setId] = useState('')
   const [product, setProduct] = useState([])
 
   const fetchProductDetails = (id) => {
@@ -20,8 +19,6 @@ export const ProductDetailPage = () => {
       .then((response) => response.json())
       .then((json) => {
         setProduct(json)
-        setId(json._id)
-        console.log(json)
       })
       .catch((error) => console.error(error))
   }
@@ -50,6 +47,7 @@ export const ProductDetailPage = () => {
         <div>
           <h3>{product.name}</h3>
           <p>{product.price} kr</p>
+          <p>Dimensions: {product.dimensions}</p>
           <button type="button" onClick={handleAddToCart}>
             Add to cart
           </button>
@@ -64,6 +62,7 @@ export const ProductDetailPage = () => {
 
 const ProductPageContainer = styled.section`
   padding-top: 30px;
+  padding-bottom: 50px;
   background: #e5dfd3;
   @media (min-width: 1024px){
     display: flex;
