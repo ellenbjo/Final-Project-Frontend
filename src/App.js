@@ -14,6 +14,7 @@ import { user } from './reducers/user'
 import { cart } from './reducers/cart'
 import { Header } from './components/Header'
 import { Nav } from './components/Nav'
+import { Footer } from './components/Footer'
 import { StartPage } from './pages/StartPage'
 import { Products } from './pages/Products'
 import { ProductDetailPage } from './pages/ProductDetailPage'
@@ -93,6 +94,7 @@ export const App = () => {
             <Redirect
               to='/404' />
           </Switch>
+          <Footer />
         </MainContainer>
       </BrowserRouter>
     </Provider>
