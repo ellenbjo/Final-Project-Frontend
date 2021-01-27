@@ -35,7 +35,7 @@ const ProductArticle = styled.li`
   display: flex;
   justify-content: center; 
   width: 100%;
-  border: 1px black solid;
+  background: whitesmoke;
   margin-bottom: 10px;
   @media (min-width: 1024px){
     width: 60%;

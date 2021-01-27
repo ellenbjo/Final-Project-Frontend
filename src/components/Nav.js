@@ -20,7 +20,7 @@ export const Nav = () => {
 
 const NavContainer = styled.nav`
   display: flex;
-  border: 1px solid black;
+  background: #cdd0cb;
 `
 
 const LinkText = styled.p`

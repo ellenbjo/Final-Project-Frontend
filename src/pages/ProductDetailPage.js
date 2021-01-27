@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
+import { Button } from '../lib/resuable/Button'
 
 export const ProductDetailPage = () => {
   const dispatch = useDispatch()
@@ -36,34 +37,33 @@ export const ProductDetailPage = () => {
     }))
   }
 
-  const handleGoBack = () => {
-    history.goBack()
+  const handleGoToProducts = () => {
+    history.push('/products')
   }
 
   return (
     <ProductPageContainer>
       <ProductWrapper>
         <ProductImage src={product.imageUrl} alt={product.name} />
-        <div>
+        <InfoWrapper>
           <h3>{product.name}</h3>
           <p>{product.price} kr</p>
           <p>Dimensions: {product.dimensions}</p>
-          <button type="button" onClick={handleAddToCart}>
-            Add to cart
-          </button>
-          <button type="button" onClick={handleGoBack}>
-            Continue Shopping
-          </button>
-        </div>
+          <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
+        </InfoWrapper>
       </ProductWrapper>
     </ProductPageContainer>
   )
 }
 
+/*<button type="button" onClick={handleGoToProducts}>
+    Continue Shopping
+  </button>
+*/
 const ProductPageContainer = styled.section`
   padding-top: 30px;
   padding-bottom: 50px;
-  background: #e5dfd3;
+  background: #e8eae6;
   @media (min-width: 1024px){
     display: flex;
     justify-content: center;
@@ -81,6 +81,10 @@ const ProductWrapper = styled.div`
   @media (min-width: 1024px){
     width: 70%;
   }
+`
+
+const InfoWrapper = styled.div`
+  width: 90%;
 `
 
 const ProductImage = styled.img`

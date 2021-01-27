@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { userSignup } from '../reducers/userThunks'
 import { AuthenticationLinks } from '../components/AuthenticationLinks'
 import { Form, FormContainer, Label } from '../lib/Form'
+import { Button } from '../lib/resuable/Button'
 
 export const Signup = () => {
   const dispatch = useDispatch()
@@ -80,9 +81,7 @@ export const Signup = () => {
             value={phoneNumber}
             onChange={(event) => setPhoneNumber(event.target.value)} />
         </Label>
-        <button type='submit'>
-          Sign up
-        </button>
+        <Button type="submit" text="Sign up" />
       </Form>
     </FormContainer>
 

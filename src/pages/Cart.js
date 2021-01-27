@@ -11,6 +11,9 @@ export const Cart = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const products = useSelector((store) => store.cart.products)
+  // reduce executes a reducer function (that you provide) on each 
+  //element of the array, resulting in single output value.
+  const totalPrice = useSelector((store) => store.cart.products.reduce((total, product) => (total + (product.price * product.quantity)), 0))
 
   const handleRemoveAll = () => {
     dispatch(cart.actions.clearCart())
@@ -35,7 +38,7 @@ export const Cart = () => {
               <CartItem key={product.id} product={product}/>
             ))}
           </ArticleList>
-          <p>Total price</p>
+          <p>Total Price: {totalPrice}kr</p>
           <div>
             <button type="button" onClick={handleRemoveAll}>Remove all</button>
             <button type="button">Check Out</button>

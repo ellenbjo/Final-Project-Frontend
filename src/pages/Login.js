@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { userLogin } from '../reducers/userThunks'
 import { AuthenticationLinks } from '../components/AuthenticationLinks'
 import { Form, FormContainer, Label } from '../lib/Form'
+import { Button } from '../lib/resuable/Button'
 
 export const Login = () => {
   const dispatch = useDispatch()
@@ -42,9 +43,7 @@ export const Login = () => {
             value={password}
             onChange={(event) => setPassword(event.target.value)} />
         </Label>
-        <button type='submit'>
-          Log in
-        </button>
+        <Button type='submit' text="Login"/>
       </Form>
     </FormContainer>
   )

@@ -6,6 +6,7 @@ export const ProductsPageContainer = styled.section`
   display: flex; 
   flex-direction: column;
   align-items: center;
+  background: #e8eae6;
 `
 
 export const AllProductsContainer = styled.section`
@@ -26,6 +27,7 @@ export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: whitesmoke;
   margin: 10px;
   @media (min-width: 700px){
     width: 30%;
@@ -46,6 +48,6 @@ export const ProductImage = styled.img`
   }
 `
 export const ImageWrapper = styled.div`
-  height: 80%;
+  height: 440px;
   overflow: hidden; 
 `

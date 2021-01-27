@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <CustomHeader>
       <Link to='/'>
-        <h2>COMPANY NAME</h2>
+        <CompanyName>COMPANY NAME</CompanyName>
       </Link>
       <List>
         <Link to='/users/profile'>
@@ -31,10 +31,15 @@ const CustomHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  background: #e8eae6;
 `
 const List = styled.ul`
   display: flex;
 `
 const LinkText = styled.li`
   margin-right: 20px;
+`
+const CompanyName = styled.h2`
+  color: #7c9473;
+  font-weight: semi-bold;
 `

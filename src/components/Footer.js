@@ -10,5 +10,6 @@ export const Footer = () => {
 }
 
 const CustomFooter = styled.footer`
-  border: 1px solid black;
+  background: #cdd0cb;
+  height: 100px;
 `
