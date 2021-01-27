@@ -5,20 +5,19 @@ import styled from 'styled-components'
 
 import { user } from '../reducers/user'
 import { accessUserProfile } from '../reducers/userThunks'
+import { Button } from '../lib/resuable/Button'
 
 export const ProfilePage = () => {
   const dispatch = useDispatch()
   const history = useHistory()
 
   const accessToken = useSelector((store) => store.user.login.accessToken)
-  const name = useSelector((store) => store.user.login.name)
-  const email = useSelector((store) => store.user.login.email)
-  const phoneNumber = useSelector((store) => store.user.login.phoneNumber)
+  const userInfo = useSelector((store) => store.user.login)
 
   /*useEffect(() => {
     dispatch(accessUserProfile(accessToken))
     console.log(accessToken)
-  }, [accessToken]) */
+  }, []) */
 
   const handleLogout = () => {
     dispatch(user.actions.setLogOut())
@@ -33,21 +32,30 @@ export const ProfilePage = () => {
     <>
       {accessToken &&
         <ProfilePageContainer>
-          <h2>Welcome {name}</h2>
+          <h2>Welcome {userInfo.name}</h2>
+          <PersonalInfo>
+            <div>
+              <h3>Personal info</h3>
+              <p><Bold>Email:</Bold> {userInfo.email}</p>
+              <p><Bold>PhoneNumber:</Bold> {userInfo.phoneNumber}</p>
+              <p><Bold>Address:</Bold></p>
+              <p>{userInfo.street}</p>
+              <p>{userInfo.postalCode}</p>
+              <p>{userInfo.city}</p>
+            </div>
+            <div>
+              <h3>Order history</h3>
+            </div>
+          </PersonalInfo>
           <div>
-            <h3>Personal info</h3>
-            <p>email: {email}</p>
-            <p>phoneNumber: {phoneNumber}</p>
+            <h2>Your favourites</h2>
           </div>
-          <div>
-            <h3>Your Favourites</h3>
-          </div>
-          <button type="button" onClick={handleLogout}>Log out</button>
+          <Button type="button" text="Log out" onButtonClick={handleLogout} />
         </ProfilePageContainer>}
       {!accessToken && 
         <ProfilePageContainer>
           <p>Please log in to access your page</p>
-          <button type="button" onClick={handleGoToLogin}>login</button>
+          <Button type="button" text="Log in" onButtonClick={handleGoToLogin} />
         </ProfilePageContainer>}
     </>
   )
@@ -57,4 +65,17 @@ const ProfilePageContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+`
+const PersonalInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  @media (min-width: 1024px){
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+`
+const Bold = styled.span`
+  font-weight: bolder;
 `
