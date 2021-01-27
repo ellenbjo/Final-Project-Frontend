@@ -33,18 +33,18 @@ export const CartItem = ({ product }) => {
 
 const ProductArticle = styled.li`
   display: flex;
-  justify-content: center; 
+  justify-content: space-between; 
+  align-items: center;
   width: 100%;
   background: whitesmoke;
   margin-bottom: 10px;
   @media (min-width: 1024px){
     width: 60%;
-    justify-content: space-between;
     align-items: center;
   } 
 `
 const ProductInfo = styled.div`
-
+  padding-right: 20px;
   @media (min-width: 1024px){
     display: flex;
     justify-content: space-between;

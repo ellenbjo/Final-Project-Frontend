@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { cart } from '../reducers/cart'
 import { CartItem } from '../components/CartItem'
 import { Headline } from '../lib/Text'
+import { Button } from '../lib/resuable/Button'
 
 export const Cart = () => {
   const dispatch = useDispatch()
@@ -24,13 +25,13 @@ export const Cart = () => {
   }
 
   return (
-    <>
-      <Headline>Cart</Headline>
+    <CartPageContainer>
+      <h2>Cart</h2>
       {products.length === 0 && 
-        <CartContainer>
+        <EmptyCartContainer>
           <p>Your cart is empty</p>
-          <button type="button" onClick={handleGoToProducts}>Shop Products</button>
-        </CartContainer>}
+          <Button type="button" text="Contine Shopping" onButtonClick={handleGoToProducts} />
+        </EmptyCartContainer>}
       {products.length > 0 && 
         <CartContainer>
           <ArticleList>
@@ -44,15 +45,32 @@ export const Cart = () => {
             <button type="button">Check Out</button>
           </div>
         </CartContainer>}
-    </>
+    </CartPageContainer>
   )
 }
 
-const CartContainer = styled.section`
+const CartPageContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
+const CartContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 1024px){
+    width: 80%;
+  } 
+`
+
+const EmptyCartContainer = styled(CartContainer)`
+  justify-content: center;
+  width: 60%;
+  @media (min-width: 1024px){
+    width: 40%;
+  }
+`
+
 const ArticleList = styled.ul`
   width: 100%;
   padding: 0;
