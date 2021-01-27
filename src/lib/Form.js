@@ -30,3 +30,9 @@ export const Label = styled.label`
     width: 70%;
   }
 `
+
+export const InputField = styled.input`
+  border: none;
+  height: 30px;
+  outline: none;
+`

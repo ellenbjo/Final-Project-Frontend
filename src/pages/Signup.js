@@ -4,7 +4,12 @@ import { useHistory } from 'react-router-dom'
 
 import { userSignup } from '../reducers/userThunks'
 import { AuthenticationLinks } from '../components/AuthenticationLinks'
-import { Form, FormContainer, Label } from '../lib/Form'
+import { 
+  Form,
+  FormContainer,
+  Label,
+  InputField
+} from '../lib/Form'
 import { Button } from '../lib/resuable/Button'
 
 export const Signup = () => {
@@ -39,45 +44,45 @@ export const Signup = () => {
       <Form onSubmit={handleSignup}>
         <Label>
           Name
-          <input
+          <InputField
             value={name}
             onChange={(event) => setName(event.target.value)} />
         </Label>
         <Label>
           Email
-          <input
+          <InputField
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)} />
         </Label>
         <Label>
           Password
-          <input
+          <InputField
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)} />
         </Label>
         <Label>
           Street
-          <input
+          <InputField
             value={street}
             onChange={(event) => setStreet(event.target.value)} />
         </Label>
         <Label>
           Postal code
-          <input
+          <InputField
             value={postalCode}
             onChange={(event) => setPostalCode(event.target.value)} />
         </Label>
         <Label>
           City
-          <input
+          <InputField
             value={city}
             onChange={(event) => setCity(event.target.value)} />
         </Label>
         <Label>
           Phone number
-          <input
+          <InputField
             value={phoneNumber}
             onChange={(event) => setPhoneNumber(event.target.value)} />
         </Label>
@@ -87,3 +92,4 @@ export const Signup = () => {
 
   )
 }
+

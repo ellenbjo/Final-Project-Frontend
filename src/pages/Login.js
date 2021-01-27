@@ -4,7 +4,12 @@ import { useHistory } from 'react-router-dom'
 
 import { userLogin } from '../reducers/userThunks'
 import { AuthenticationLinks } from '../components/AuthenticationLinks'
-import { Form, FormContainer, Label } from '../lib/Form'
+import { 
+  Form, 
+  FormContainer, 
+  Label, 
+  InputField 
+} from '../lib/Form'
 import { Button } from '../lib/resuable/Button'
 
 export const Login = () => {
@@ -31,14 +36,14 @@ export const Login = () => {
       <Form onSubmit={handleLogin}>
         <Label>
           Email
-          <input
+          <InputField
             type='email'
             value={email}
             onChange={(event) => setEmail(event.target.value)} />
         </Label>
         <Label>
           Password
-          <input
+          <InputField
             type='password'
             value={password}
             onChange={(event) => setPassword(event.target.value)} />
