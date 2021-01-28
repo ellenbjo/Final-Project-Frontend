@@ -50,16 +50,13 @@ export const ProductDetailPage = () => {
           <p>{product.price} kr</p>
           <p>Dimensions: {product.dimensions}</p>
           <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
+          <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
         </InfoWrapper>
       </ProductWrapper>
     </ProductPageContainer>
   )
 }
 
-/*<button type="button" onClick={handleGoToProducts}>
-    Continue Shopping
-  </button>
-*/
 const ProductPageContainer = styled.section`
   padding-top: 30px;
   padding-bottom: 50px;

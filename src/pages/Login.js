@@ -16,9 +16,6 @@ export const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const accessToken = useSelector((store) => store.user.login.accessToken)
-  const name = useSelector((store) => store.user.login.name)
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 

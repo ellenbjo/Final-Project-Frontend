@@ -4,12 +4,13 @@ import styled from 'styled-components'
 export const Footer = () => {
   return (
     <CustomFooter>
-      <p>Here is a footer</p>
+      <p>Made by Ellen Björkman</p>
     </CustomFooter>
   )
 }
 
 const CustomFooter = styled.footer`
+  text-align: center;
   background: #cdd0cb;
   height: 100px;
 `

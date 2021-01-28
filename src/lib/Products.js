@@ -31,7 +31,7 @@ export const ProductCard = styled.div`
   margin: 10px;
   @media (min-width: 700px){
     width: 30%;
-    margin: 10px;
+    margin: 8px;
   }
   @media (min-width: 1024px){
     width: 25%;
@@ -48,6 +48,12 @@ export const ProductImage = styled.img`
   }
 `
 export const ImageWrapper = styled.div`
-  height: 440px;
+  height: 80%;
   overflow: hidden; 
+  @media (min-width: 700px){
+    height: 400px;
+  }
+  @media (min-width: 1024px){
+    height: 400px;
+  }
 `
