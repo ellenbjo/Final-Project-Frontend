@@ -24,6 +24,7 @@ import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 import { ProfilePage } from './pages/ProfilePage'
 import { Cart } from './pages/Cart'
+import { Checkout } from './pages/Checkout'
 import { NotFound } from './pages/NotFound'
 
 const reducer = combineReducers({
@@ -87,6 +88,9 @@ export const App = () => {
             </Route>
             <Route path='/cart'>
               <Cart />
+            </Route>
+            <Route path='/checkout'>
+              <Checkout />
             </Route>
             <Route path='/404'>
               <NotFound />
