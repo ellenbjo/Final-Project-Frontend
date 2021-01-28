@@ -12,13 +12,14 @@ export const Header = () => {
         <CompanyName>COMPANY NAME</CompanyName>
       </Link>
       <List>
-        <Link to='/users/profile'>
-          <LinkText>My Page</LinkText>
-        </Link>
+        {accessToken &&
+          <Link to='/users/profile'>
+            <LinkText>My Page</LinkText>
+          </Link>}
         {!accessToken &&
-        <Link to='/login'>
-          <LinkText>Log in</LinkText>
-        </Link>}
+          <Link to='/login'>
+            <LinkText>Log in</LinkText>
+          </Link>}
         <Link to='/cart'>
           <LinkText>Cart</LinkText>
         </Link>
