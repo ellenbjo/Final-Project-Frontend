@@ -1,23 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import moment from 'moment'
 import styled from 'styled-components'
 
 import { user } from '../reducers/user'
-import { accessUserProfile } from '../reducers/userThunks'
 import { Button } from '../lib/resuable/Button'
 
 export const ProfilePage = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-
   const accessToken = useSelector((store) => store.user.login.accessToken)
   const userInfo = useSelector((store) => store.user.login)
 
-  /*useEffect(() => {
-    dispatch(accessUserProfile(accessToken))
-    console.log(accessToken)
-  }, []) */
+  const [orders, setOrders] = useState([])
+
+  const fetchOrderHistory = () => {
+    const USER_ORDERS_URL = 'https://ellen-final-project.herokuapp.com/users/orders'
+
+    fetch(USER_ORDERS_URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Access denied. Please login to access this page.')
+        } return response.json()
+      })
+      .then((json) => {
+        setOrders(json)
+      })
+  }
+
+  useEffect(() => {
+    fetchOrderHistory()
+  }, [])
 
   const handleLogout = () => {
     dispatch(user.actions.setLogOut())
@@ -49,6 +69,11 @@ export const ProfilePage = () => {
             </div>
             <div>
               <h3>Order history</h3>
+              <ul>
+                {orders.map((order) => (
+                  <li>{moment(order.createdAt).format('YYYY-MM-DD')}</li>
+                ))}
+              </ul>
             </div>
           </PersonalInfo>
           <div>
