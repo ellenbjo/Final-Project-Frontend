@@ -1,24 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { user } from '../reducers/user'
 import { cart } from '../reducers/cart'
+import { sendOrder } from '../reducers/userThunks'
 import { Button } from '../lib/resuable/Button'
 
 export const Checkout = () => {
   const dispatch = useDispatch()
-  const cartItems = useSelector((store) => store.cart.products)
+  const products = useSelector((store) => store.cart.products)
+  const accessToken = useSelector((store) => store.user.login.accessToken)
+  const userId = useSelector((store) => store.user.login.userId)
   const [checked, setChecked] = useState(false)
 
-  const handleCheckOut = () => {
-    dispatch(user.actions.setOrders({orders: cartItems }))
+  const handleCheckOut = (event) => {
+    event.preventDefault()
+    dispatch(sendOrder(
+      products,
+      userId,
+      accessToken
+    ))
     dispatch(cart.actions.clearCart())
   }
 
   return (
     <section>
       <h2>Checkout</h2>
-      {console.log(checked)}
+      {console.log(accessToken)}
       <p>Your order will be shipped to:</p>
       <p>Your Address</p>
       <form>
