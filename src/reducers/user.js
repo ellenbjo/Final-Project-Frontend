@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+//change name of login to user
 const initialState = {
   login: {
     accessToken: null,
@@ -10,7 +10,8 @@ const initialState = {
     postalCode: null,
     city: null,
     phoneNumber: null,
-    statusMessage: null
+    statusMessage: null,
+    orders: []
   }
 }
 
@@ -51,6 +52,10 @@ export const user = createSlice({
     setPhoneNumber: (state, action) => {
       const { phoneNumber } = action.payload
       state.login.phoneNumber = phoneNumber
+    },
+    setOrders: (state, action) => {
+      const { order } = action.payload
+      state.login.orders = state.login.orders.push(...order)
     },
     setStatusMessage: (state, action) => {
       const { statusMessage } = action.payload
