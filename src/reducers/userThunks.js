@@ -64,16 +64,45 @@ export const userLogin = (email, password) => {
         dispatch(user.actions.setPostalCode({ postalCode: json.postalCode }))
         dispatch(user.actions.setCity({ city: json.city }))
         dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }))
+        dispatch(user.actions.setStatusMessage({ statusMessage: 'You are now logged in.' }))
       })
       .catch((error) => console.log(error))
   }
 }
 
-export const accessUserProfile = (accessToken) => {
-  const USER_PROFILE_URL = `https://ellen-final-project.herokuapp.com/users/profile`
+export const sendOrder = (products, userId, accessToken) => {
+  const ORDER_URL = 'https://ellen-final-project.herokuapp.com/orders'
+  return (dispatch) => {
+    fetch(ORDER_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        products,
+        userId
+      }),
+      headers: { 
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Order could not be saved.')
+        } return response.json()
+      })
+      .then((json) => {
+        console.log(json)
+        dispatch(user.actions.setStatusMessage({ statusMessage: 'Your order is now on its way!' }))
+      })
+      .catch((error) => console.log(error))
+  }
+}
 
-  return () => {
-    fetch(USER_PROFILE_URL, {
+/*template for accessing privateinformation
+export const accessUserOrders = (accessToken) => {
+  const USER_ORDERS_URL = 'https://ellen-final-project.herokuapp.com/users/orders'
+
+  return (dispatch) => {
+    fetch(USER_ORDERS_URL, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -82,11 +111,12 @@ export const accessUserProfile = (accessToken) => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Access denied. Please login to access your profile.')
+          throw new Error('Access denied. Please login to access this page.')
         } return response.json()
       })
       .then((json) => {
         console.log(json)
+        //dispatch(user.actions.setOrder({ orders: json }))
       })
   }
-}
+}*/
