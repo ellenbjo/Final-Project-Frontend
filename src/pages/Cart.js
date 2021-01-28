@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useEffect }from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
 import { CartItem } from '../components/CartItem'
-import { Headline } from '../lib/Text'
 import { Button } from '../lib/resuable/Button'
 
 export const Cart = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const accessToken = useSelector((store) => store.user.login.accessToken)
   const products = useSelector((store) => store.cart.products)
   // reduce executes a reducer function (that you provide) on each 
   //element of the array, resulting in single output value.
@@ -22,6 +22,14 @@ export const Cart = () => {
 
   const handleGoToProducts = () => {
     history.push('/products')
+  }
+
+  const handleGoToLogin = () => {
+    history.push('/login')
+  }
+
+  const handleGoToCheckout = () => {
+    history.push('/checkout')
   }
 
   return (
@@ -40,10 +48,15 @@ export const Cart = () => {
             ))}
           </ArticleList>
           <p>Total Price: {totalPrice}kr</p>
-          <div>
-            <button type="button" onClick={handleRemoveAll}>Remove all</button>
-            <button type="button">Check Out</button>
-          </div>
+          {!accessToken &&
+          <p>Please log in to continue to the check out</p>}
+          <ButtonWrapper>
+            <Button type="button" text="Remove all" onButtonClick={handleRemoveAll} />
+            {accessToken &&
+            <Button type="button" text="Continue to check out" onButtonClick={handleGoToCheckout}/>}
+            {!accessToken &&
+            <Button type="button" text="Log in" onButtonClick={handleGoToLogin} />}
+          </ButtonWrapper>
         </CartContainer>}
     </CartPageContainer>
   )
@@ -79,4 +92,11 @@ const ArticleList = styled.ul`
     flex-direction: column;
     align-items: center;
   } 
+`
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
 `

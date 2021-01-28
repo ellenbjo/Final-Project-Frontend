@@ -28,6 +28,10 @@ export const ProfilePage = () => {
     history.push('/login')
   }
 
+  const handleGoToCart = () => {
+    history.push('/cart')
+  }
+
   return (
     <>
       {accessToken &&
@@ -50,6 +54,7 @@ export const ProfilePage = () => {
           <div>
             <h2>Your favourites</h2>
           </div>
+          <Button type="button" text="Go to cart" onButtonClick={handleGoToCart}/>
           <Button type="button" text="Log out" onButtonClick={handleLogout} />
         </ProfilePageContainer>}
       {!accessToken && 
