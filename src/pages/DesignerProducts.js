@@ -7,6 +7,7 @@ import {
   ProductCard,
   ProductImage
 } from '../lib/Products'
+import { Products } from './Products'
 
 export const DesignerProducts = () => {
   const { designerId } = useParams()
@@ -19,9 +20,11 @@ export const DesignerProducts = () => {
       .then((response) => response.json())
       .then((json) => {
         setProducts(json)
-        console.log(json)
+        console.log(products)
       })
-      .catch((error) => console.error(error))
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   useEffect(() => {
@@ -35,7 +38,7 @@ export const DesignerProducts = () => {
       <AllProductsContainer>
         {products.map((product) => (
           <ProductCard key={product._id}>
-            <Link to={`products/${product._id}`}>
+            <Link>
               <ProductImage src={product.imageUrl} alt={product.name} />
               <p>{product.name}</p>
               <p>{product.price} kr</p>
