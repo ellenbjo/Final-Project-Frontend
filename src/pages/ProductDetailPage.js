@@ -49,8 +49,10 @@ export const ProductDetailPage = () => {
           <h3>{product.name}</h3>
           <p>{product.price} kr</p>
           <p>Dimensions: {product.dimensions}</p>
-          <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
-          <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
+          <ButtonWrapper>
+            <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
+            <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
+          </ButtonWrapper>
         </InfoWrapper>
       </ProductWrapper>
     </ProductPageContainer>
@@ -94,4 +96,9 @@ const ProductImage = styled.img`
   @media (min-width: 1024px){
     width: 30%;
   }
+`
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `

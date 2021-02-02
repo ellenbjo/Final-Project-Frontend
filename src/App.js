@@ -13,7 +13,6 @@ import styled from 'styled-components'
 import { user } from './reducers/user'
 import { cart } from './reducers/cart'
 import { Header } from './components/Header'
-import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
 import { StartPage } from './pages/StartPage'
 import { Products } from './pages/Products'
@@ -60,7 +59,6 @@ export const App = () => {
       <BrowserRouter>
         <MainContainer>
           <Header />
-          <Nav />
           <Switch>
             <Route exact path='/'>
               <StartPage />

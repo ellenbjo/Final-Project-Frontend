@@ -44,7 +44,7 @@ export const ProductImage = styled.img`
   object-fit: cover;
   transition: all .5s ease;
   :hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `
 export const ImageWrapper = styled.div`
@@ -55,5 +55,8 @@ export const ImageWrapper = styled.div`
   }
   @media (min-width: 1024px){
     height: 400px;
+  }
+  @media (min-width: 1600px){
+    height: 430px;
   }
 `

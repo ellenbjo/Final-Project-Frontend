@@ -5,6 +5,7 @@ import moment from 'moment'
 import styled from 'styled-components'
 
 import { user } from '../reducers/user'
+import { cart } from '../reducers/cart'
 import { Button } from '../lib/resuable/Button'
 
 export const ProfilePage = () => {
@@ -15,7 +16,7 @@ export const ProfilePage = () => {
 
   const [orders, setOrders] = useState([])
 
-  const fetchOrderHistory = () => {
+  const fetchOrderHistory = async () => {
     const USER_ORDERS_URL = 'https://ellen-final-project.herokuapp.com/users/orders'
 
     fetch(USER_ORDERS_URL, {
@@ -41,6 +42,7 @@ export const ProfilePage = () => {
 
   const handleLogout = () => {
     dispatch(user.actions.setLogOut())
+    //dispatch(cart.actions.clearCart())
     history.push('/')
   }
 
@@ -71,7 +73,7 @@ export const ProfilePage = () => {
               <h3>Order history</h3>
               <ul>
                 {orders.map((order) => (
-                  <li>{moment(order.createdAt).format('YYYY-MM-DD')}</li>
+                  <li key={order._id}>Order: {moment(order.createdAt).format('YYYY-MM-DD')}</li>
                 ))}
               </ul>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import { userSignup } from '../reducers/userThunks'
@@ -15,6 +15,7 @@ import { Button } from '../lib/resuable/Button'
 export const Signup = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const errorMessage = useSelector((store) => store.user.login.errorMessage)
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -35,7 +36,11 @@ export const Signup = () => {
       city,
       phoneNumber
     ))
-    history.push('/users/profile')
+    console.log(errorMessage)
+    if (!errorMessage) {
+      history.push('/')
+    }
+    //history.push('/')
   }
 
   return (

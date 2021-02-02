@@ -39,7 +39,7 @@ export const Products = () => {
               <ImageWrapper>
                 <ProductImage src={product.imageUrl} alt={product.name} />
               </ImageWrapper>
-              <p>{product.name}</p>
+              <h3>{product.name.toUpperCase()}</h3>
               <p>{product.price} kr</p>
             </Link>
           </ProductCard>

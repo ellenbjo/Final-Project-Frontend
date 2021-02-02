@@ -15,7 +15,7 @@ import { Button } from '../lib/resuable/Button'
 export const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-
+  const errorMessage = useSelector((store) => store.user.login.errorMessage)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -24,7 +24,7 @@ export const Login = () => {
     dispatch(userLogin(email, password))
     setEmail('')
     setPassword('')
-    history.push('/users/profile')
+    history.push('/')
   }
 
   return (

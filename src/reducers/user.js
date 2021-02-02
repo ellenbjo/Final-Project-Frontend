@@ -10,7 +10,8 @@ const initialState = {
     postalCode: null,
     city: null,
     phoneNumber: null,
-    statusMessage: null
+    statusMessage: null,
+    errorMessage: null
   }
 }
 
@@ -56,8 +57,12 @@ export const user = createSlice({
       const { statusMessage } = action.payload
       state.login.statusMessage = statusMessage
     },
+    setErrorMessage: (state, action) => {
+      const { errorMessage } = action.payload
+      console.log(errorMessage)
+      state.login.errorMessage = errorMessage
+    },
     setLogOut: (state) => {
-      //is it possible to also clear cart here?
       state.login.userId = 0
       state.login.accessToken = null
       state.login.name = null

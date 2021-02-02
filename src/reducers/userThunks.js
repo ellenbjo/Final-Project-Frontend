@@ -38,7 +38,11 @@ export const userSignup = (
         dispatch(user.actions.setCity({ city: json.city }))
         dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }))
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        dispatch(user.actions.setErrorMessage({
+          errorMessage: error.toString()
+        }))
+      })
   }
 }
 
@@ -66,7 +70,11 @@ export const userLogin = (email, password) => {
         dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }))
         dispatch(user.actions.setStatusMessage({ statusMessage: 'You are now logged in.' }))
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        dispatch(user.actions.setErrorMessage({
+          errorMessage: error.message.toString()
+        }))
+      })
   }
 }
 
@@ -93,7 +101,11 @@ export const sendOrder = (products, userId, accessToken) => {
         console.log(json)
         dispatch(user.actions.setStatusMessage({ statusMessage: 'Your order is now on its way!' }))
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        dispatch(user.actions.setErrorMessage({
+          errorMessage: error.toString()
+        }))
+      })
   }
 }
 
