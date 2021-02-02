@@ -1,41 +1,72 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
+import { Burger } from './Burger'
+import { DesktopNav } from './DesktopNav'
+import { MobileNav } from './MobileNav'
+
 export const Header = () => {
   const accessToken = useSelector((store) => store.user.login.accessToken)
+  const cartItems = useSelector((store) => store.cart.products.reduce((total, product) => (total + (product.quantity)), 0))
+  const [open, setOpen] = useState(false)
 
   return (
     <CustomHeader>
-      <Link to='/'>
-        <CompanyName>COMPANY NAME</CompanyName>
-      </Link>
-      <List>
-        {accessToken &&
-          <Link to='/users/profile'>
-            <LinkText>My Page</LinkText>
-          </Link>}
-        {!accessToken &&
-          <Link to='/login'>
-            <LinkText>Log in</LinkText>
-          </Link>}
-        <Link to='/cart'>
-          <LinkText>Cart</LinkText>
-        </Link>
-      </List>
+      <TopSection>
+        <TopMenuWrapper>
+          <Burger open={open} setOpen={setOpen} />
+          <MobileNav open={open} />
+          <Link to='/'>
+            <CompanyName>COMPANY NAME</CompanyName>
+          </Link>
+          <List>
+            {accessToken &&
+              <Link to='/users/profile'>
+                <LinkText>My Page</LinkText>
+              </Link>}
+            {!accessToken &&
+              <Link to='/login'>
+                <LinkText>Log in</LinkText>
+              </Link>}
+            <Link to='/cart'>
+              <LinkText>Cart {cartItems}</LinkText>
+            </Link>
+          </List>
+        </TopMenuWrapper>
+      </TopSection>
+      <DesktopNav />
     </CustomHeader>
   )
 }
 
 const CustomHeader = styled.header`
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  width: 100%;
+`
+const TopMenuWrapper = styled.div`
+  display: flex;
   background: #e8eae6;
+  @media (min-width: 1024px){
+    width: 50%;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+`
+
+const TopSection = styled.div`
+  display: flex;
+  @media (min-width: 1024px){
+    justify-content: center;
+  }
 `
 const List = styled.ul`
-  display: flex;
+  display: none;
+  @media (min-width: 1024px){
+    display: flex;
+  }
 `
 const LinkText = styled.li`
   margin-right: 20px;
@@ -43,4 +74,14 @@ const LinkText = styled.li`
 const CompanyName = styled.h2`
   color: #7c9473;
   font-weight: semi-bold;
+  position: relative;
+  font-size: 35px;
+  left: 30%;
+  @media (min-width: 700px) {
+    left: 40%;
+    bottom: 8%;
+  }
+  @media (min-width: 1024px) {
+    left: 0;
+  }
 `

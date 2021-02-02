@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const Nav = () => {
+export const DesktopNav = () => {
   return (
     <NavContainer>
       <Link to='/products'>
@@ -19,8 +19,12 @@ export const Nav = () => {
 }
 
 const NavContainer = styled.nav`
-  display: flex;
-  background: #cdd0cb;
+  display: none;
+  @media (min-width: 1024px){
+    background: #cdd0cb;
+    display: flex;
+    justify-content: center;
+  }
 `
 
 const LinkText = styled.p`
