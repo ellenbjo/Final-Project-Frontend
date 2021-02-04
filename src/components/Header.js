@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { Burger } from './Burger'
 import { DesktopNav } from './DesktopNav'
 import { MobileNav } from './MobileNav'
+import { ReactComponent as ShoppingCart } from '../svg:s/shoppingcart.svg'
 
 export const Header = () => {
   const accessToken = useSelector((store) => store.user.login.accessToken)
@@ -17,21 +18,24 @@ export const Header = () => {
       <TopSection>
         <TopMenuWrapper>
           <Burger open={open} setOpen={setOpen} />
-          <MobileNav open={open} />
-          <Link to='/'>
+          <MobileNav open={open} setOpen={setOpen} />
+          <Link to="/">
             <CompanyName>COMPANY NAME</CompanyName>
           </Link>
           <List>
             {accessToken &&
-              <Link to='/users/profile'>
+              <Link to="/users/profile">
                 <LinkText>My Page</LinkText>
               </Link>}
             {!accessToken &&
-              <Link to='/login'>
+              <Link to="/login">
                 <LinkText>Log in</LinkText>
               </Link>}
-            <Link to='/cart'>
-              <LinkText>Cart {cartItems}</LinkText>
+            <Link to="/cart">
+              <LinkText>
+                <ShoppingCart width="20" height="20" fill="#555555" />
+                {cartItems}
+              </LinkText>
             </Link>
           </List>
         </TopMenuWrapper>
@@ -50,7 +54,7 @@ const TopMenuWrapper = styled.div`
   display: flex;
   background: #e8eae6;
   @media (min-width: 1024px){
-    width: 50%;
+    width: 60%;
     justify-content: space-between;
     align-items: baseline;
   }
@@ -72,7 +76,7 @@ const LinkText = styled.li`
   margin-right: 20px;
 `
 const CompanyName = styled.h2`
-  color: #7c9473;
+  color: #91A5A1;
   font-weight: semi-bold;
   position: relative;
   font-size: 35px;
