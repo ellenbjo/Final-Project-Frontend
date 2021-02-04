@@ -1,23 +1,31 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const MobileNav = ({ open }) => {
+export const MobileNav = ({ open, setOpen }) => {
+  const accessToken = useSelector((store) => store.user.login.accessToken)
+
   return (
     <Nav open={open}>
-      <Link to='/products'>
+      <Link to="/products" onClick={() => setOpen(false)}>
         <p>Products</p>
       </Link>
-      <Link to='/designers'>
+      <Link to="/designers" onClick={() => setOpen(false)}>
         <p>Designers</p>
       </Link>
-      <Link to='/login'>
-        <p>Login</p>
-      </Link>
-      <Link to='/cart'>
+      {!accessToken &&
+        <Link to="/login" onClick={() => setOpen(false)}>
+          <p>Login</p>
+        </Link>}
+      {accessToken &&
+        <Link to="/users/profile" onClick={() => setOpen(false)}>
+          <p>My Page</p>
+        </Link>}
+      <Link to="/cart" onClick={() => setOpen(false)}>
         <p>Cart</p>
       </Link>
-      <Link>
+      <Link onClick={() => setOpen(false)}>
         <p>About</p>
       </Link>
     </Nav>
