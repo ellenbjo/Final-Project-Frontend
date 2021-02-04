@@ -1,4 +1,4 @@
-import { createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 //The subtraction assignment operator ( -= ) subtracts the value of the right operand from a variable and assigns the result to the variable
 export const cart = createSlice({
@@ -13,7 +13,7 @@ export const cart = createSlice({
       if (existingProduct) {
         existingProduct.quantity += 1
       } else {
-        state.products.push({...action.payload, quantity: 1 })
+        state.products.push({ ...action.payload, quantity: 1 })
       }
     },
     removeProduct: (state, action) => {

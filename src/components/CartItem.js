@@ -2,6 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
+import { ReactComponent as Plus } from '../svg:s/plus.svg'
+import { ReactComponent as Minus } from '../svg:s/minus.svg'
 import { cart } from '../reducers/cart'
 
 export const CartItem = ({ product }) => {
@@ -16,48 +18,93 @@ export const CartItem = ({ product }) => {
   }
 
   return (
-    <ProductArticle>
-      <ProductImage src={product.imageUrl} alt={product.name} />
+    <CartProduct>
+      <ImageWrapper>
+        <ProductImage src={product.imageUrl} alt={product.name} />
+      </ImageWrapper>
       <ProductInfo>
         <p>{product.name}</p>
         <p>{product.price} kr</p>
-        <div>
-          <button type="button" onClick={increaseQuantity}>+</button>
-          <span>{product.quantity}</span>
-          <button type="button" onClick={reduceQuantity}>-</button>
-        </div>
+        <p>
+          <div>
+            <QuantityButton type="button" onClick={increaseQuantity}>
+              <Plus width="15" height="20" fill="whitesmoke" />
+            </QuantityButton>
+            <span>{product.quantity}</span>
+            <QuantityButton type="button" onClick={reduceQuantity}>
+              <Minus width="15" height="20" fill="whitesmoke" />
+            </QuantityButton>
+          </div>
+        </p>
       </ProductInfo>
-    </ProductArticle>
+    </CartProduct>
   )
 }
 
-const ProductArticle = styled.li`
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  width: 100%;
+const CartProduct = styled.div`
   background: whitesmoke;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 20px;
+  @media (min-width: 700px){
+    flex-direction: row;
+    height: 300px;
+    width: 40%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   @media (min-width: 1024px){
-    width: 60%;
-    align-items: center;
-  } 
+    width: 33%;
+    height: 300px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @media (min-width: 1500px){
+    width: 40%;
+    height: 300px;
+  }
 `
-const ProductInfo = styled.div`
-  padding-right: 20px;
-  @media (min-width: 1024px){
-    display: flex;
-    justify-content: space-between;
-    width: 75%;
+
+const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  @media (min-width: 700px){
+    width: 50%;
+    height: 100%;
+  }
+  @media (min-width: 700px){
+    width: 60%;
   }
 `
 
 const ProductImage = styled.img`
-  width: 50%;
+  width: 80%;
+  object-fit: cover;
   @media (min-width: 700px){
-    width: 30%;
+    width: 100%;
+    height: 100%;
   }
-  @media (min-width: 1024px){
-    width: 10%;
+`
+
+const ProductInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  div{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: 30px;
   }
+  @media (min-width: 700px){
+    align-items: baseline;
+    justify-content: center;
+    margin-left: 10px;
+  }
+`
+
+const QuantityButton = styled.button`
+  background: #cdd0cb;
+  border: none;
 `
