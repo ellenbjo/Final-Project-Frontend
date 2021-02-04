@@ -5,7 +5,6 @@ import moment from 'moment'
 import styled from 'styled-components'
 
 import { user } from '../reducers/user'
-import { cart } from '../reducers/cart'
 import { Button } from '../lib/resuable/Button'
 
 export const ProfilePage = () => {
@@ -81,13 +80,19 @@ export const ProfilePage = () => {
           <div>
             <h2>Your favourites</h2>
           </div>
-          <Button type="button" text="Go to cart" onButtonClick={handleGoToCart}/>
+          <Button 
+            type="button" 
+            text="Go to cart" 
+            onButtonClick={handleGoToCart} />
           <Button type="button" text="Log out" onButtonClick={handleLogout} />
         </ProfilePageContainer>}
       {!accessToken && 
         <ProfilePageContainer>
           <p>Please log in to access your page</p>
-          <Button type="button" text="Log in" onButtonClick={handleGoToLogin} />
+          <Button
+            type="button"
+            text="Log in"
+            onButtonClick={handleGoToLogin} />
         </ProfilePageContainer>}
     </>
   )
@@ -102,7 +107,16 @@ const PersonalInfo = styled.div`
   display: flex;
   flex-direction: column;
   width: 70%;
+  color: whitesmoke;
+  background: #91A5A1;
+  padding: 20px;
+
+  div{
+    border: 0.5px solid whitesmoke;
+    padding: 10px;
+  }
   @media (min-width: 1024px){
+    width: 50%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

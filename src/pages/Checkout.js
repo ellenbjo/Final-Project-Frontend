@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 
@@ -40,14 +40,16 @@ export const Checkout = () => {
         <CheckBoxContainer>
           <label>
             Accept terms and conditions
-            <input 
+            <input
               type="checkbox"
               checked={isChecked}
               onChange={onToggleCheckbox} />
           </label>
           {isChecked && 
-            <Button type="submit" text="Confirm order" onButtonClick={handleCheckOut}
-            />}
+            <Button 
+              type="submit" 
+              text="Confirm order"
+              onButtonClick={handleCheckOut} />}
         </CheckBoxContainer>
       </>}
       {orderConfirmed && 

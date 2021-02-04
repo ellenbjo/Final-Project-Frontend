@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-//reuse this components and put in lib
-//same flex-box design for designers
 export const ProductsPageContainer = styled.section`
   display: flex; 
   flex-direction: column;
@@ -14,10 +12,10 @@ export const AllProductsContainer = styled.section`
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  @media (min-width: 700px){
-    width: 100%;
-  }
   @media (min-width: 1024px){
+    width: 80%;
+  }
+  @media (min-width: 1500px){
     width: 70%;
   }
 `
@@ -58,5 +56,28 @@ export const ImageWrapper = styled.div`
   }
   @media (min-width: 1600px){
     height: 430px;
+  }
+`
+
+export const ProductText = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  h3{
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  p{
+    font-size: 18px;
+    margin: 0;
+  }
+  @media (min-width: 700px){
+    align-items: center;
+    h3{
+      font-size: 18px;
+    }
+    p{
+      font-size: 16px;
+    }
   }
 `

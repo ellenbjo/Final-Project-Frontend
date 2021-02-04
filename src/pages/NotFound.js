@@ -15,7 +15,10 @@ export const NotFound = () => {
     <NotFoundContainer>
       <h2>NOT FOUND</h2>
       <p>Sorry, the page you're looking for could not be found.</p>
-      <Button type="button" text="Go to start page" onButtonClick={handleGoToStart}/>
+      <Button
+        type="button"
+        text="Go to start page"
+        onButtonClick={handleGoToStart} />
     </NotFoundContainer>
   )
 }

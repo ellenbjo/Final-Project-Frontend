@@ -17,7 +17,7 @@ export const Designers = () => {
       .catch((error) => console.log(error))
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     fetchDesigners()
   }, [])
 

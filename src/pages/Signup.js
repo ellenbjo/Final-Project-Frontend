@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import { userSignup } from '../reducers/userThunks'
-import { AuthenticationLinks } from '../components/AuthenticationLinks'
-import { 
+import { LoginSignupLinks } from '../components/LoginSignupLinks'
+import {
   Form,
   FormContainer,
   Label,
@@ -36,16 +36,12 @@ export const Signup = () => {
       city,
       phoneNumber
     ))
-    console.log(errorMessage)
-    if (!errorMessage) {
-      history.push('/')
-    }
-    //history.push('/')
+    history.push('/')
   }
 
   return (
     <FormContainer>
-      <AuthenticationLinks />
+      <LoginSignupLinks />
       <Form onSubmit={handleSignup}>
         <Label>
           Name

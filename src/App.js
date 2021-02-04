@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { 
+import {
   createStore,
   combineReducers,
   applyMiddleware,
@@ -60,41 +60,41 @@ export const App = () => {
         <MainContainer>
           <Header />
           <Switch>
-            <Route exact path='/'>
+            <Route exact path="/">
               <StartPage />
             </Route>
-            <Route exact path='/products'>
+            <Route exact path="/products">
               <Products />
             </Route>
-            <Route path='/products/:productId'>
+            <Route path="/products/:productId">
               <ProductDetailPage />
             </Route>
-            <Route exact path='/designers'>
+            <Route exact path="/designers">
               <Designers />
             </Route>
-            <Route path='/designers/:id/products'>
+            <Route path="/designers/:id/products">
               <DesignerProducts />
             </Route>
-            <Route path='/login'>
+            <Route path="/login">
               <Login />
             </Route>
-            <Route path='/signup'>
+            <Route path="/signup">
               <Signup />
             </Route>
-            <Route path='/users/profile'>
+            <Route path="/users/profile">
               <ProfilePage />
             </Route>
-            <Route path='/cart'>
+            <Route path="/cart">
               <Cart />
             </Route>
-            <Route path='/checkout'>
+            <Route path="/checkout">
               <Checkout />
             </Route>
-            <Route path='/404'>
+            <Route path="/404">
               <NotFound />
             </Route>
             <Redirect
-              to='/404' />
+              to="/404" />
           </Switch>
           <Footer />
         </MainContainer>

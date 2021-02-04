@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const AuthenticationLinks = () => {
+export const LoginSignupLinks = () => {
   return (
     <LinkContainer>
-      <Link to='/login'>
+      <Link to="/login">
         <LinkText>Login</LinkText>
       </Link>
-      <Link to='/signup'>
+      <Link to="/signup">
         <LinkText>Sign up</LinkText>
       </Link>
     </LinkContainer>

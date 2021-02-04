@@ -87,7 +87,7 @@ export const sendOrder = (products, userId, accessToken) => {
         products,
         userId
       }),
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
         Authorization: accessToken
       }
@@ -108,27 +108,3 @@ export const sendOrder = (products, userId, accessToken) => {
       })
   }
 }
-
-/*template for accessing privateinformation
-export const accessUserOrders = (accessToken) => {
-  const USER_ORDERS_URL = 'https://ellen-final-project.herokuapp.com/users/orders'
-
-  return (dispatch) => {
-    fetch(USER_ORDERS_URL, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: accessToken
-      }
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Access denied. Please login to access this page.')
-        } return response.json()
-      })
-      .then((json) => {
-        console.log(json)
-        //dispatch(user.actions.setOrder({ orders: json }))
-      })
-  }
-}*/

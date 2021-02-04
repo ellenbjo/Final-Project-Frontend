@@ -7,7 +7,6 @@ import {
   ProductCard,
   ProductImage
 } from '../lib/Products'
-import { Products } from './Products'
 
 export const DesignerProducts = () => {
   const { designerId } = useParams()

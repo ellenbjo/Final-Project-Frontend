@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import { userLogin } from '../reducers/userThunks'
-import { AuthenticationLinks } from '../components/AuthenticationLinks'
+import { LoginSignupLinks } from '../components/LoginSignupLinks'
 import { 
   Form, 
   FormContainer, 
@@ -29,23 +29,23 @@ export const Login = () => {
 
   return (
     <FormContainer>
-      <AuthenticationLinks />
+      <LoginSignupLinks />
       <Form onSubmit={handleLogin}>
         <Label>
           Email
           <InputField
-            type='email'
+            type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)} />
         </Label>
         <Label>
           Password
           <InputField
-            type='password'
+            type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)} />
         </Label>
-        <Button type='submit' text="Login"/>
+        <Button type="submit" text="Login" />
       </Form>
     </FormContainer>
   )
