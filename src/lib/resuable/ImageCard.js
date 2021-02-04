@@ -13,7 +13,7 @@ export const ImageCard = ({ text, path, imageUrl }) => {
 }
 
 const CustomCard = styled.div`
-  background-image: ${({imageUrl}) => `url(${imageUrl})`};
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

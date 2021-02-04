@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const ColorCard = ({ text, path, paragraph }) => {
+export const ColorCard = ({ text, path, paragraph, color }) => {
   return (
-    <CustomCard>
+    <CustomCard color={color}>
       <div>
         <Link to={path}>
           <h3>{text}</h3>
@@ -21,7 +21,7 @@ const CustomCard = styled.div`
   align-items: center;
   justify-content: center;
   height: 720px;
-  background: #cdd0cb;
+  background: ${({ color }) => `${color}`};
   @media (min-width: 700px){
     width: 50%;
     flex-grow: 1;
