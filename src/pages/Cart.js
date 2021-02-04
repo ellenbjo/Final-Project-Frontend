@@ -1,10 +1,10 @@
-import React, { useEffect }from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
-import { CartItem } from '../components/CartItem'
+import { CartProducts } from '../components/CartProducts'
 import { Button } from '../lib/resuable/Button'
 
 export const Cart = () => {
@@ -35,25 +35,21 @@ export const Cart = () => {
   return (
     <CartPageContainer>
       <h2>Cart</h2>
-      {products.length === 0 && 
+      {products.length === 0 &&
         <EmptyCartContainer>
           <p>Your cart is empty</p>
           <Button type="button" text="Contine Shopping" onButtonClick={handleGoToProducts} />
         </EmptyCartContainer>}
-      {products.length > 0 && 
+      {products.length > 0 &&
         <CartContainer>
-          <ArticleList>
-            {products.map((product) => (
-              <CartItem key={product.id} product={product}/>
-            ))}
-          </ArticleList>
+          <CartProducts product={products} />
           <p>Total Price: {totalPrice}kr</p>
           {!accessToken &&
           <p>Please log in to continue to the check out</p>}
           <ButtonWrapper>
             <Button type="button" text="Remove all" onButtonClick={handleRemoveAll} />
             {accessToken &&
-            <Button type="button" text="Continue to check out" onButtonClick={handleGoToCheckout}/>}
+            <Button type="button" text="Continue to check out" onButtonClick={handleGoToCheckout} />}
             {!accessToken &&
             <Button type="button" text="Log in" onButtonClick={handleGoToLogin} />}
           </ButtonWrapper>
@@ -74,6 +70,9 @@ const CartContainer = styled.section`
   @media (min-width: 1024px){
     width: 80%;
   } 
+  @media (min-width: 1500px){
+    width: 50%;
+  } 
 `
 
 const EmptyCartContainer = styled(CartContainer)`
@@ -82,16 +81,6 @@ const EmptyCartContainer = styled(CartContainer)`
   @media (min-width: 1024px){
     width: 40%;
   }
-`
-
-const ArticleList = styled.ul`
-  width: 100%;
-  padding: 0;
-  @media (min-width: 1024px){
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } 
 `
 
 const ButtonWrapper = styled.div`
