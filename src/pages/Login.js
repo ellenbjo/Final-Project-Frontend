@@ -31,8 +31,8 @@ export const Login = () => {
     //history.push('/')
   }
 
-  const handleGoToProfile = () => {
-    history.push('/users/profile')
+  const handleGoToProducts = () => {
+    history.push('/products')
   }
 
   const handleLogout = () => {
@@ -46,9 +46,9 @@ export const Login = () => {
       <LoginSignupLinks />
       {accessToken &&
         <LoggedIn>
-          <h3>Hi {name}, you are already logged in.</h3>
+          <h3>Welcome {name}!</h3>
           <div>
-            <Button type="button" onButtonClick={handleGoToProfile} text="Go to profile page" />
+            <Button type="button" onButtonClick={handleGoToProducts} text="Go to shop" />
             <Button type="button" onButtonClick={handleLogout} text="Log out" />
           </div>
         </LoggedIn>}
