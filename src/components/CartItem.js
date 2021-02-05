@@ -69,9 +69,9 @@ const CartProduct = styled.div`
 const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
+  height: 80%;
   @media (min-width: 700px){
     width: 50%;
-    height: 100%;
   }
   @media (min-width: 700px){
     width: 60%;
@@ -80,6 +80,7 @@ const ImageWrapper = styled.div`
 
 const ProductImage = styled.img`
   width: 80%;
+  height: 100%;
   object-fit: cover;
   @media (min-width: 700px){
     width: 100%;
