@@ -25,7 +25,7 @@ export const MobileNav = ({ open, setOpen }) => {
       <Link to="/cart" onClick={() => setOpen(false)}>
         <p>Cart</p>
       </Link>
-      <Link onClick={() => setOpen(false)}>
+      <Link to="/" onClick={() => setOpen(false)}>
         <p>About</p>
       </Link>
     </Nav>

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
+import { ui } from '../reducers/ui'
 import { Button } from '../lib/resuable/Button'
+import { Loader } from '../components/Loader'
 
 export const ProductDetailPage = () => {
   const dispatch = useDispatch()
+  const isLoading = useSelector((store) => store.ui.loading)
   const history = useHistory()
-
   const { productId } = useParams()
   const [product, setProduct] = useState([])
 
@@ -19,12 +21,14 @@ export const ProductDetailPage = () => {
     fetch(URL)
       .then((response) => response.json())
       .then((json) => {
+        dispatch(ui.actions.setLoading(false))
         setProduct(json)
       })
       .catch((error) => console.error(error))
   }
 
   useEffect(() => {
+    dispatch(ui.actions.setLoading(true))
     fetchProductDetails(productId)
   }, [productId])
 
@@ -46,6 +50,7 @@ export const ProductDetailPage = () => {
       <ProductWrapper>
         <ProductImage src={product.imageUrl} alt={product.name} />
         <InfoWrapper>
+          {isLoading && <Loader />}
           <h3>{product.name}</h3>
           <p>{product.price} kr</p>
           <p>Dimensions: {product.dimensions}</p>

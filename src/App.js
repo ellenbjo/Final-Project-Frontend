@@ -12,6 +12,7 @@ import styled from 'styled-components'
 
 import { user } from './reducers/user'
 import { cart } from './reducers/cart'
+import { ui } from './reducers/ui'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { StartPage } from './pages/StartPage'
@@ -28,7 +29,8 @@ import { NotFound } from './pages/NotFound'
 
 const reducer = combineReducers({
   user: user.reducer,
-  cart: cart.reducer
+  cart: cart.reducer,
+  ui: ui.reducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

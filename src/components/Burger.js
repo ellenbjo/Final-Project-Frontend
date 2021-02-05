@@ -14,15 +14,15 @@ export const Burger = ({ open, setOpen }) => {
 const BurgerMenu = styled.button`
   display: flex;
   flex-direction: column;
-  left: 2rem;
+  left: 1.5rem;
   justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background: transparent;
   border: none;
   padding: 0;
   z-index: 10;
-  top: 4.5%;
+  top: 2.5%;
   position: absolute;
   @media (min-width: 700px){
     top: 3.5%;
@@ -35,8 +35,8 @@ const BurgerMenu = styled.button`
   }
   div {
     background: #555555;
-    width: 2rem;
-    height: 0.25rem;
+    width: 1.5rem;
+    height: 0.15rem;
     border-radius: 10px;
     transition: all 0.3s linear;
     transform-origin: 1px;
@@ -44,12 +44,10 @@ const BurgerMenu = styled.button`
     :first-child {
       transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
-
     :nth-child(2) {
       opacity: ${({ open }) => open ? '0' : '1'};
       transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
     }
-
     :nth-child(3) {
       transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }

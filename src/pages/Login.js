@@ -1,21 +1,25 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import styled from 'styled-components'
 
+import { user } from '../reducers/user'
 import { userLogin } from '../reducers/userThunks'
 import { LoginSignupLinks } from '../components/LoginSignupLinks'
-import { 
-  Form, 
-  FormContainer, 
-  Label, 
-  InputField 
+import {
+  Form,
+  FormContainer,
+  Label,
+  InputField
 } from '../lib/Form'
 import { Button } from '../lib/resuable/Button'
 
 export const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const errorMessage = useSelector((store) => store.user.login.errorMessage)
+  //const errorMessage = useSelector((store) => store.user.login.errorMessage)
+  const accessToken = useSelector((store) => store.user.login.accessToken)
+  const name = useSelector((store) => store.user.login.name)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -24,12 +28,31 @@ export const Login = () => {
     dispatch(userLogin(email, password))
     setEmail('')
     setPassword('')
+    //history.push('/')
+  }
+
+  const handleGoToProfile = () => {
+    history.push('/users/profile')
+  }
+
+  const handleLogout = () => {
+    dispatch(user.actions.setLogOut())
+    //dispatch(cart.actions.clearCart())
     history.push('/')
   }
 
   return (
     <FormContainer>
       <LoginSignupLinks />
+      {accessToken &&
+        <LoggedIn>
+          <h3>Hi {name}, you are already logged in.</h3>
+          <div>
+            <Button type="button" onButtonClick={handleGoToProfile} text="Go to profile page" />
+            <Button type="button" onButtonClick={handleLogout} text="Log out" />
+          </div>
+        </LoggedIn>}
+      {!accessToken && 
       <Form onSubmit={handleLogin}>
         <Label>
           Email
@@ -46,7 +69,20 @@ export const Login = () => {
             onChange={(event) => setPassword(event.target.value)} />
         </Label>
         <Button type="submit" text="Login" />
-      </Form>
+      </Form>}
     </FormContainer>
   )
 }
+
+const LoggedIn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+`

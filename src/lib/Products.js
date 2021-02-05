@@ -21,11 +21,11 @@ export const AllProductsContainer = styled.section`
 `
 
 export const ProductCard = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: whitesmoke;
+  width: 100%;
   margin: 10px;
   @media (min-width: 700px){
     width: 30%;

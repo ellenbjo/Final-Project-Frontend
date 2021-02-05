@@ -16,9 +16,9 @@ export const Header = () => {
   return (
     <CustomHeader>
       <TopSection>
+        <Burger open={open} setOpen={setOpen} />
+        <MobileNav open={open} setOpen={setOpen} />
         <TopMenuWrapper>
-          <Burger open={open} setOpen={setOpen} />
-          <MobileNav open={open} setOpen={setOpen} />
           <Link to="/">
             <CompanyName>COMPANY NAME</CompanyName>
           </Link>
@@ -33,7 +33,10 @@ export const Header = () => {
               </Link>}
             <Link to="/cart">
               <LinkText>
-                <ShoppingCart width="20" height="20" fill="#555555" />
+                <ShoppingCart
+                  width="20"
+                  height="20"
+                  fill="555555" />
                 {cartItems}
               </LinkText>
             </Link>
@@ -52,11 +55,17 @@ const CustomHeader = styled.header`
 `
 const TopMenuWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   background: #e8eae6;
-  @media (min-width: 1024px){
-    width: 60%;
+  width: 100%;
+  @media (min-width: 700px){
+    flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+  }
+  @media (min-width: 1024px){
+    width: 60%;
   }
 `
 
@@ -67,9 +76,18 @@ const TopSection = styled.div`
   }
 `
 const List = styled.ul`
-  display: none;
+  display: flex;
+  a {
+    :first-child{
+      display: none;
+    }
+  }
   @media (min-width: 1024px){
-    display: flex;
+    a {
+      :first-child{
+        display: flex;
+      }
+    }
   }
 `
 const LinkText = styled.li`
@@ -78,14 +96,18 @@ const LinkText = styled.li`
 const CompanyName = styled.h2`
   color: #91A5A1;
   font-weight: semi-bold;
+  font-size: 25px;
+  margin-bottom: 0;
   position: relative;
-  font-size: 35px;
-  left: 30%;
-  @media (min-width: 700px) {
-    left: 40%;
-    bottom: 8%;
+  left: 40%;
+  @media (min-width: 700px){
+    font-size: 30px;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px){
     left: 0;
   }
 `
+
+    /*:last-of-type{
+      background: ${({ addingToCart }) => addingToCart ? 'green' : 'red'};
+    } */

@@ -12,7 +12,7 @@ export const DesktopNav = () => {
         <Link to="/designers">
           <LinkText>DESIGNERS</LinkText>
         </Link>
-        <Link>
+        <Link to="/">
           <LinkText>ABOUT</LinkText>
         </Link>
       </div>

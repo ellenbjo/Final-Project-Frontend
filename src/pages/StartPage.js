@@ -31,6 +31,8 @@ export const StartPage = () => {
 //#91A5A1
 const StartPageContainer = styled.section`
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `
 
 const HeroSection = styled.div`
@@ -71,6 +73,7 @@ const SecondSection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 1700px;
   div{
     :nth-of-type(3){
         display: none;
@@ -87,6 +90,7 @@ const SecondSection = styled.div`
     }
   }
   @media (min-width: 1024px){
+    align-self: center;
     div{
       :nth-of-type(3){
           display: none;

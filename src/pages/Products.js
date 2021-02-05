@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { ui } from '../reducers/ui'
 import {
   ProductsPageContainer,
   AllProductsContainer,
@@ -9,8 +11,11 @@ import {
   ImageWrapper,
   ProductText
 } from '../lib/Products'
+import { Loader } from '../components/Loader'
 
 export const Products = () => {
+  const dispatch = useDispatch()
+  const isLoading = useSelector((store) => store.ui.loading)
   const [products, setProducts] = useState([])
 
   const fetchProducts = () => {
@@ -19,13 +24,14 @@ export const Products = () => {
     fetch(URL)
       .then((response) => response.json())
       .then((json) => {
+        dispatch(ui.actions.setLoading(false))
         setProducts(json)
-        console.log(json)
       })
       .catch((error) => console.error(error))
   }
 
   useEffect(() => {
+    dispatch(ui.actions.setLoading(true))
     fetchProducts()
   }, [setProducts])
 
@@ -48,6 +54,7 @@ export const Products = () => {
           </ProductCard>
         ))}
       </AllProductsContainer>
+      {isLoading && <Loader />}
     </ProductsPageContainer>
   )
 }
