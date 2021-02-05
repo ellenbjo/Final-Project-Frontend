@@ -82,7 +82,8 @@ const ImageWrapper = styled.div`
 `
 
 const ProductImage = styled.img`
-  width: 80%;
+  width: 95%;
+  height: 500px;
   object-fit: cover;
   @media (min-width: 700px){
     width: 100%;
