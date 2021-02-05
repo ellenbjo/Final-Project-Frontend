@@ -36,10 +36,8 @@ const NavContainer = styled.nav`
 
 const LinkText = styled.p`
   margin-right: 50px;
-  color: #91a5a1;
   font-weight: bold;
   :hover{
-    color: #91a5a1;
     text-decoration: underline;
   }
 `

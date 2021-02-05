@@ -8,26 +8,28 @@ export const MobileNav = ({ open, setOpen }) => {
 
   return (
     <Nav open={open}>
-      <Link to="/products" onClick={() => setOpen(false)}>
-        <p>Products</p>
-      </Link>
-      <Link to="/designers" onClick={() => setOpen(false)}>
-        <p>Designers</p>
-      </Link>
-      {!accessToken &&
-        <Link to="/login" onClick={() => setOpen(false)}>
-          <p>Login</p>
-        </Link>}
-      {accessToken &&
-        <Link to="/users/profile" onClick={() => setOpen(false)}>
-          <p>My Page</p>
-        </Link>}
-      <Link to="/cart" onClick={() => setOpen(false)}>
-        <p>Cart</p>
-      </Link>
-      <Link to="/" onClick={() => setOpen(false)}>
-        <p>About</p>
-      </Link>
+      <LinkWrapper>
+        <Link to="/products" onClick={() => setOpen(false)}>
+          <p>Products</p>
+        </Link>
+        <Link to="/designers" onClick={() => setOpen(false)}>
+          <p>Designers</p>
+        </Link>
+        {!accessToken &&
+          <Link to="/login" onClick={() => setOpen(false)}>
+            <p>Login</p>
+          </Link>}
+        {accessToken &&
+          <Link to="/users/profile" onClick={() => setOpen(false)}>
+            <p>My Page</p>
+          </Link>}
+        <Link to="/cart" onClick={() => setOpen(false)}>
+          <p>Cart</p>
+        </Link>
+        <Link to="/" onClick={() => setOpen(false)}>
+          <p>About</p>
+        </Link>
+      </LinkWrapper>
     </Nav>
   )
 }
@@ -35,7 +37,6 @@ export const MobileNav = ({ open, setOpen }) => {
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  text-align: left;
   justify-content: center;
   align-items: center;
   background: #cdd0cb;
@@ -55,5 +56,16 @@ const Nav = styled.nav`
   }
   p{
     font-size: 25px;
+    color: whitesmoke;
+    font-weight: bolder;
   }
+`
+const LinkWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid whitesmoke;
+  width: 80%;
+  height: 70%;
 `

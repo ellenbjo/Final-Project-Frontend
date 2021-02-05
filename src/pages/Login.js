@@ -83,6 +83,9 @@ const LoggedIn = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 70%;
+    @media (min-width: 1024px){
+      width: 40%;
+    }
   }
 `

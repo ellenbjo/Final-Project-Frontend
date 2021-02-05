@@ -27,7 +27,4 @@ const CustomButton = styled.button`
   @media (min-width: 700px){
     width: 70%;
   }
-  @media (min-width: 1024px){
-    width: 40%;
-  } 
 `

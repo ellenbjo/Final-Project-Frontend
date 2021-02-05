@@ -37,9 +37,9 @@ export const Designers = () => {
         {designers.map((designer) => (
           <Link to={`designers/${designer._id}/products`}>
             <DesignerCard key={designer._id} imgUrl={designer.imageUrl}>
-              <div>
+              <TextBox>
                 <h3>{designer.name}</h3>
-              </div>
+              </TextBox>
             </DesignerCard>
           </Link>
         ))}
@@ -74,10 +74,20 @@ const DesignerCard = styled.div`
   height: 300px;
   justify-content: center;
   h3{
-    color: #555555;
+    color: whitesmoke;
     font-size: 25px;
   }
   @media (min-width: 700px){
     background-position: center;
+  }
+`
+
+const TextBox = styled.div`
+  background: rgba(205,208,203,0.5);
+  text-align: center;
+  width: 40%;
+  transition: .5s ease;
+  :hover{
+    transform: scale(1.05);
   }
 `

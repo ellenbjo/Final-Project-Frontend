@@ -20,7 +20,7 @@ export const Header = () => {
         <MobileNav open={open} setOpen={setOpen} />
         <TopMenuWrapper>
           <Link to="/">
-            <CompanyName>COMPANY NAME</CompanyName>
+            <CompanyName open={open}>COMPANY NAME</CompanyName>
           </Link>
           <List>
             {accessToken &&
@@ -94,7 +94,7 @@ const LinkText = styled.li`
   margin-right: 20px;
 `
 const CompanyName = styled.h2`
-  color: #91A5A1;
+  color: ${({ open }) => open ? 'whitesmoke' : '#91A5A1'};
   font-weight: semi-bold;
   font-size: 25px;
   margin-bottom: 0;
@@ -107,7 +107,3 @@ const CompanyName = styled.h2`
     left: 0;
   }
 `
-
-    /*:last-of-type{
-      background: ${({ addingToCart }) => addingToCart ? 'green' : 'red'};
-    } */

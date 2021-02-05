@@ -12,4 +12,5 @@ export const Loader = () => {
 
 const LoaderContainer = styled.div`
   color: #555555;
+  text-align: center;
 `

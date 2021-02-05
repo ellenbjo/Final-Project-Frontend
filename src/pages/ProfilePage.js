@@ -102,6 +102,15 @@ const ProfilePageContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  button{
+    width: 70%;
+    @media (min-width: 700px){
+      width: 50%;
+    }
+    @media (min-width: 1024px){
+      width: 30%;
+    }
+  }
 `
 const PersonalInfo = styled.div`
   display: flex;
@@ -110,13 +119,12 @@ const PersonalInfo = styled.div`
   color: whitesmoke;
   background: #91A5A1;
   padding: 20px;
-
   div{
     border: 0.5px solid whitesmoke;
-    padding: 10px;
+    padding: 20px;
   }
   @media (min-width: 1024px){
-    width: 50%;
+    width: 40%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

@@ -47,6 +47,7 @@ export const ProductImage = styled.img`
 `
 export const ImageWrapper = styled.div`
   height: 80%;
+  width: 100%;
   overflow: hidden; 
   @media (min-width: 700px){
     height: 400px;
@@ -62,6 +63,7 @@ export const ImageWrapper = styled.div`
 export const ProductText = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 10px;
   h3{
     font-size: 20px;
@@ -72,7 +74,6 @@ export const ProductText = styled.div`
     margin: 0;
   }
   @media (min-width: 700px){
-    align-items: center;
     h3{
       font-size: 18px;
     }

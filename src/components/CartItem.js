@@ -28,11 +28,11 @@ export const CartItem = ({ product }) => {
         <p>
           <div>
             <QuantityButton type="button" onClick={increaseQuantity}>
-              <Plus width="15" height="20" fill="whitesmoke" />
+              <Plus width="15" height="20" fill="#91a5a1" />
             </QuantityButton>
             <span>{product.quantity}</span>
             <QuantityButton type="button" onClick={reduceQuantity}>
-              <Minus width="15" height="20" fill="whitesmoke" />
+              <Minus width="15" height="20" fill="#91a5a1" />
             </QuantityButton>
           </div>
         </p>
@@ -109,6 +109,9 @@ const ProductInfo = styled.div`
 `
 
 const QuantityButton = styled.button`
-  background: #cdd0cb;
+  background: whitesmoke;
   border: none;
+  &:focus{
+    outline: dotted #91a5a1 0.5px;
+  }
 `

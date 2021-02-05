@@ -33,6 +33,7 @@ const StartPageContainer = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
+  background: #e8eae6;
 `
 
 const HeroSection = styled.div`
