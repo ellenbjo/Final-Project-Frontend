@@ -45,7 +45,9 @@ const CartProduct = styled.div`
   background: whitesmoke;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  align-items: center;
+  width: 70%;
+  padding-top: 20px;
   margin-bottom: 20px;
   @media (min-width: 700px){
     flex-direction: row;
@@ -53,6 +55,8 @@ const CartProduct = styled.div`
     width: 40%;
     margin-left: 20px;
     margin-right: 20px;
+    padding-top: 0;
+    align-items: normal;
   }
   @media (min-width: 1024px){
     width: 33%;
@@ -62,13 +66,13 @@ const CartProduct = styled.div`
   }
   @media (min-width: 1500px){
     width: 40%;
-    height: 300px;
   }
 `
 
 const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
+  width: 90%;
   @media (min-width: 700px){
     width: 50%;
   }
