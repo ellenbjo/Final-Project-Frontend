@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
 import { ui } from '../reducers/ui'
+//import { FavouriteButton } from '../components/FavouriteButton'
 import { Button } from '../lib/resuable/Button'
 import { Loader } from '../components/Loader'
 

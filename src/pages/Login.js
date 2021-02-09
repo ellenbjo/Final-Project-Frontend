@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
@@ -13,11 +13,13 @@ import {
   InputField
 } from '../lib/Form'
 import { Button } from '../lib/resuable/Button'
+import { Loader } from '../components/Loader'
 
 export const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  //const errorMessage = useSelector((store) => store.user.login.errorMessage)
+  const isLoading = useSelector((store) => store.ui.loading)
+  const errorMessage = useSelector((store) => store.user.login.errorMessage)
   const accessToken = useSelector((store) => store.user.login.accessToken)
   const name = useSelector((store) => store.user.login.name)
   const [email, setEmail] = useState('')
@@ -28,7 +30,6 @@ export const Login = () => {
     dispatch(userLogin(email, password))
     setEmail('')
     setPassword('')
-    //history.push('/')
   }
 
   const handleGoToProducts = () => {
@@ -40,6 +41,10 @@ export const Login = () => {
     //dispatch(cart.actions.clearCart())
     history.push('/')
   }
+
+  useEffect(() => {
+    dispatch((user.actions.setErrorMessage('')))
+  }, [dispatch])
 
   return (
     <FormContainer>
@@ -58,6 +63,7 @@ export const Login = () => {
           Email
           <InputField
             type="email"
+            required
             value={email}
             onChange={(event) => setEmail(event.target.value)} />
         </Label>
@@ -66,9 +72,14 @@ export const Login = () => {
           <InputField
             type="password"
             value={password}
+            required
             onChange={(event) => setPassword(event.target.value)} />
         </Label>
         <Button type="submit" text="Login" />
+        {isLoading && 
+          <Loader />}
+        {errorMessage && 
+          <p>Wrong Email/Password. Please try again.</p>}
       </Form>}
     </FormContainer>
   )

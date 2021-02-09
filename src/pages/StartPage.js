@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import Fade from 'react-reveal'
 
 import { ImageCard } from '../lib/resuable/ImageCard'
 import { ColorCard } from '../lib/resuable/ColorCard'
@@ -20,15 +21,15 @@ export const StartPage = () => {
         </div>
       </HeroSection>
       <SecondSection>
-        <ImageCard text="test3" path="/products" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1612278091/products/pexels-elika-margaretha-4898516_xuavth.jpg" />
+        <ImageCard text="Shop Vases" path="/products" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1612278091/products/pexels-elika-margaretha-4898516_xuavth.jpg" />
         <ColorCard text="Sign up today" paragraph="Get 20% off" path="/signup" color="#cdd0cb" />
         <ColorCard text="The gift guide" paragraph="lorem ipsum" path="/" color="#a59195" />
-        <ImageCard text="test" path="/products" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1611155887/products/pexels-cottonbro-4277097_wig5hy.jpg" />
+        <ImageCard text="Designers" path="/designers" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1611155887/products/pexels-cottonbro-4277097_wig5hy.jpg" />
       </SecondSection>
     </StartPageContainer>
   )
 }
-//#91A5A1
+
 const StartPageContainer = styled.section`
   width: 100%;
   display: flex;
@@ -55,7 +56,6 @@ const HeroSection = styled.div`
   h1{
     font-size: 40px;
     font-weight: lighter;
-    //text-shadow: 1.5px 1.5px #cdd0cb;
   }
   h2{
     font-size: 50px;
@@ -63,7 +63,6 @@ const HeroSection = styled.div`
     padding: 10px;
     color: whitesmoke;
     font-weight: lighter;
-    //text-shadow: 1.5px 1.5px #cdd0cb;
   }
   p{
     font-size: 20px;

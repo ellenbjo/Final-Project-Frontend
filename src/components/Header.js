@@ -20,7 +20,7 @@ export const Header = () => {
         <MobileNav open={open} setOpen={setOpen} />
         <TopMenuWrapper>
           <Link to="/">
-            <CompanyName open={open}>COMPANY NAME</CompanyName>
+            <CompanyName open={open}>CLAY</CompanyName>
           </Link>
           <List>
             {accessToken &&
@@ -34,10 +34,10 @@ export const Header = () => {
             <Link to="/cart">
               <LinkText>
                 <ShoppingCart
-                  width="20"
-                  height="20"
+                  width="22"
+                  height="22"
                   fill="555555" />
-                {cartItems}
+                ({cartItems})
               </LinkText>
             </Link>
           </List>
@@ -56,14 +56,10 @@ const CustomHeader = styled.header`
 const TopMenuWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   background: #e8eae6;
   width: 100%;
-  @media (min-width: 700px){
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-  }
+  font-size: 18px;
   @media (min-width: 1024px){
     width: 60%;
   }
@@ -71,6 +67,7 @@ const TopMenuWrapper = styled.div`
 
 const TopSection = styled.div`
   display: flex;
+  align-items: center;
   @media (min-width: 1024px){
     justify-content: center;
   }
@@ -92,18 +89,16 @@ const List = styled.ul`
 `
 const LinkText = styled.li`
   margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 const CompanyName = styled.h2`
   color: ${({ open }) => open ? 'whitesmoke' : '#91A5A1'};
-  font-weight: semi-bold;
+  font-family:'Bodoni Moda', serif;
   font-size: 25px;
-  margin-bottom: 0;
   position: relative;
-  left: 40%;
   @media (min-width: 700px){
     font-size: 30px;
-  }
-  @media (min-width: 1024px){
-    left: 0;
   }
 `

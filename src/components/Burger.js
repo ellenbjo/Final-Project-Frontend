@@ -14,19 +14,15 @@ export const Burger = ({ open, setOpen }) => {
 const BurgerMenu = styled.button`
   display: flex;
   flex-direction: column;
-  left: 1.5rem;
   justify-content: space-around;
   width: 1.5rem;
   height: 1.5rem;
   background: transparent;
   border: none;
   padding: 0;
-  z-index: 10;
-  top: 2.5%;
-  position: absolute;
-  @media (min-width: 700px){
-    top: 3.5%;
-  }
+  z-index: 1;
+  margin-left: 20px;
+  margin-right: 15px;
   @media (min-width: 1024px){
     display: none;
   }

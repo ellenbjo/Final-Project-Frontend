@@ -4,11 +4,12 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Arsenal', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #555555;
-  background: #e8eae6; 
+  background: #e8eae6;
+  height: 100%;
 }
 
 code {
@@ -33,7 +34,4 @@ ul {
   list-style-type: none;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Source Serif Pro', serif;
-}
 

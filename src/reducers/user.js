@@ -11,7 +11,8 @@ const initialState = {
     city: null,
     phoneNumber: null,
     statusMessage: null,
-    errorMessage: null
+    errorMessage: null,
+    favourites: []
   }
 }
 
@@ -72,6 +73,7 @@ export const user = createSlice({
       state.login.city = null
       state.login.phoneNumber = null
       state.login.statusMessage = 'You are now logged out.'
+      state.login.errorMessage = null
     }
   }
 })

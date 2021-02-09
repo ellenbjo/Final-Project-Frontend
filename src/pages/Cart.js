@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { cart } from '../reducers/cart'
 import { CartProducts } from '../components/CartProducts'
 import { Button } from '../lib/resuable/Button'
+import { ReactComponent as ShoppingCart } from '../svg:s/shoppingcart.svg'
 
 export const Cart = () => {
   const dispatch = useDispatch()
@@ -37,7 +38,8 @@ export const Cart = () => {
       <h2>Cart</h2>
       {products.length === 0 &&
         <EmptyCartContainer>
-          <p>Your cart is empty</p>
+          <ShoppingCart height="50" width="50" fill="#555555" />
+          <p>Your cart is empty.</p>
           <Button type="button" text="Contine Shopping" onButtonClick={handleGoToProducts} />
         </EmptyCartContainer>}
       {products.length > 0 &&
@@ -62,6 +64,7 @@ const CartPageContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 50px;
 `
 const CartContainer = styled.section`
   display: flex;

@@ -5,6 +5,7 @@ import moment from 'moment'
 import styled from 'styled-components'
 
 import { user } from '../reducers/user'
+/*import { UserFavourites } from '../components/UserFavourites'*/
 import { Button } from '../lib/resuable/Button'
 
 export const ProfilePage = () => {
@@ -14,9 +15,10 @@ export const ProfilePage = () => {
   const userInfo = useSelector((store) => store.user.login)
 
   const [orders, setOrders] = useState([])
+  /*const [favourites, setFavourites] = useState([])*/
 
   const fetchOrderHistory = async () => {
-    const USER_ORDERS_URL = 'https://ellen-final-project.herokuapp.com/users/orders'
+    const USER_ORDERS_URL = 'https://ellen-final-project.herokuapp.com/users/user/orders'
 
     fetch(USER_ORDERS_URL, {
       method: 'GET',
@@ -35,8 +37,29 @@ export const ProfilePage = () => {
       })
   }
 
+  /*const fetchUserFavourites = async () => {
+    const USER_FAVOURITES_URL = 'https://ellen-final-project.herokuapp.com/users/user/favourites'
+
+    fetch(USER_FAVOURITES_URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Access denied. Please login to access this page.')
+        } return response.json()
+      })
+      .then((json) => {
+        setFavourites(json)
+      })
+  }*/
+
   useEffect(() => {
     fetchOrderHistory()
+    /*fetchUserFavourites()*/
   }, [])
 
   const handleLogout = () => {
@@ -77,9 +100,12 @@ export const ProfilePage = () => {
               </ul>
             </div>
           </PersonalInfo>
-          <div>
+         {/* <div>
             <h2>Your favourites</h2>
-          </div>
+            {favourites.map((favourite) => (
+              <UserFavourites key={favourite._id} favourite={favourite} />
+            ))}
+            </div> */}
           <Button 
             type="button" 
             text="Go to cart" 

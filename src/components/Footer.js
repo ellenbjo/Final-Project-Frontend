@@ -30,6 +30,6 @@ export const Footer = () => {
 const CustomFooter = styled.footer`
   display: flex;
   background: #91A5A1;
-  height: 200px;
-  margin-top: 150px;
+  margin-top: 20px;
+  padding-bottom: 100px;
 `

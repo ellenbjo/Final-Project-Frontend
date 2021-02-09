@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Fade from 'react-reveal'
 import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
@@ -46,14 +47,16 @@ export const Checkout = () => {
               onChange={onToggleCheckbox} />
           </label>
           {isChecked && 
-            <Button 
-              type="submit" 
-              text="Confirm order"
-              onButtonClick={handleCheckOut} />}
+            <Fade bottom>
+              <Button
+                type="submit" 
+                text="Confirm order"
+                onButtonClick={handleCheckOut} />
+            </Fade>}
         </CheckBoxContainer>
       </>}
       {orderConfirmed && 
-        <p> Thank you for your order, {userInfo.name}! </p>}
+        <p>Thank you {userInfo.name}! {userInfo.statusMessage}.</p>}
     </CheckoutContainer>
   )
 }

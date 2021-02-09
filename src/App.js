@@ -98,8 +98,8 @@ export const App = () => {
             <Redirect
               to="/404" />
           </Switch>
-          <Footer />
         </MainContainer>
+        <Footer />
       </BrowserRouter>
     </Provider>
   )
@@ -107,4 +107,5 @@ export const App = () => {
 
 const MainContainer = styled.main`
   width: 100%;
+  min-height: 90vh;
 `

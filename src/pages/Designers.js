@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal'
 import styled from 'styled-components'
 
 import { ui } from '../reducers/ui'
-import { ProductsPageContainer, AllProductsContainer } from '../lib/Products'
+import { 
+  ProductsPageContainer,
+  AllProductsContainer,
+  PageHeader
+} from '../lib/Products'
 import { Loader } from '../components/Loader'
 
 export const Designers = () => {
@@ -31,8 +36,9 @@ export const Designers = () => {
 
   return (
     <DesignersPageContainer>
-      <h2>All Designers</h2>
-      <p>A short text about this page</p>
+      <PageHeader>
+        <h2>All Designers</h2>
+      </PageHeader>
       <AllDesignersContainer>
         {designers.map((designer) => (
           <Link to={`designers/${designer._id}/products`}>

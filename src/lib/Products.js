@@ -7,6 +7,20 @@ export const ProductsPageContainer = styled.section`
   background: #e8eae6;
 `
 
+export const PageHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+  @media (min-width: 700px){
+    margin-left: 50px;
+  }
+  @media (min-width: 1024px){
+    width: 60%;
+    margin-left: 0;
+  }
+`
+
 export const AllProductsContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +38,6 @@ export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: whitesmoke;
   width: 100%;
   margin: 10px;
   @media (min-width: 700px){
@@ -63,15 +76,17 @@ export const ImageWrapper = styled.div`
 export const ProductText = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px;
+  justify-content: center;
+  background: whitesmoke;
+  height: 20%;
+  padding: 0 10px 0 10px;
   h3{
     font-size: 20px;
     margin-bottom: 8px;
   }
   p{
     font-size: 18px;
-    margin: 0;
+    align-self: flex-end;
   }
   @media (min-width: 700px){
     h3{

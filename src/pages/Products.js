@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal'
 
 import { ui } from '../reducers/ui'
 import {
   ProductsPageContainer,
+  PageHeader,
   AllProductsContainer,
   ProductCard,
   ProductImage,
@@ -37,20 +39,23 @@ export const Products = () => {
 
   return (
     <ProductsPageContainer>
-      <h2>ALL PRODUCTS</h2>
-      <p>Here is a short text about this page.</p>
+      <PageHeader>
+        <h2>All Products</h2>
+      </PageHeader>
       <AllProductsContainer>
         {products.map((product) => (
           <ProductCard key={product._id}>
-            <Link to={`products/${product._id}`}>
-              <ImageWrapper>
-                <ProductImage src={product.imageUrl} alt={product.name} />
-              </ImageWrapper>
-              <ProductText>
-                <h3>{product.name.toUpperCase()}</h3>
-                <p>{product.price} kr</p>
-              </ProductText>
-            </Link>
+            <Fade bottom>
+              <Link to={`products/${product._id}`}>
+                <ImageWrapper>
+                  <ProductImage src={product.imageUrl} alt={product.name} />
+                </ImageWrapper>
+                <ProductText>
+                  <h3>{product.name}</h3>
+                  <p>{product.price} kr</p>
+                </ProductText>
+              </Link>
+            </Fade>
           </ProductCard>
         ))}
       </AllProductsContainer>
