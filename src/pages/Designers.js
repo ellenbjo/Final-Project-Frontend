@@ -67,6 +67,9 @@ const DesignersPageContainer = styled(ProductsPageContainer)`
 `
 
 const AllDesignersContainer = styled(AllProductsContainer)`
+  @media (min-width: 1024px){
+    width: 60%;
+  }
   div{
     width: 100%;
   }
