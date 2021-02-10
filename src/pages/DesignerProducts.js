@@ -20,6 +20,7 @@ export const DesignerProducts = () => {
   const isLoading = useSelector((store) => store.ui.loading)
   const { id } = useParams()
   const [products, setProducts] = useState([])
+  const [error, setError] = useState('')
 
   const fetchProducts = (designerId) => {
     const URL = `https://ellen-final-project.herokuapp.com/designers/${designerId}/products`
@@ -30,8 +31,9 @@ export const DesignerProducts = () => {
         dispatch(ui.actions.setLoading(false))
         setProducts(json)
       })
-      .catch((error) => {
-        console.log(error)
+      .catch((err) => {
+        dispatch(ui.actions.setLoading(false))
+        setError(err)
       })
   }
 
@@ -42,9 +44,6 @@ export const DesignerProducts = () => {
 
   return (
     <ProductsPageContainer>
-      <PageHeader>
-        <h2>PRODUCTS FROM</h2>
-      </PageHeader>
       <AllProductsContainer>
         {products.map((product) => (
           <ProductCard key={product._id}>
@@ -61,6 +60,7 @@ export const DesignerProducts = () => {
             </Fade>
           </ProductCard>
         ))}
+        {error && <p>No Products were found. Please try to load the page again.</p>}
       </AllProductsContainer>
       {isLoading && <Loader />}
     </ProductsPageContainer>

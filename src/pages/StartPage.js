@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Fade from 'react-reveal'
 
 import { ImageCard } from '../lib/resuable/ImageCard'
 import { ColorCard } from '../lib/resuable/ColorCard'
@@ -10,20 +9,20 @@ export const StartPage = () => {
   return (
     <StartPageContainer>
       <HeroSection>
-        <div>
+        <HeroText>
           <h1>
             NEW ARRIVALS
           </h1>
-          <p>Carefully selected products.</p>
+          <p>Carefully selected designs for spring.</p>
           <Link to="/products">
-            <h2>Shop Products</h2>
+            <LinkText>Shop Products</LinkText>
           </Link>
-        </div>
+        </HeroText>
       </HeroSection>
       <SecondSection>
         <ImageCard text="Shop Vases" path="/products" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1612278091/products/pexels-elika-margaretha-4898516_xuavth.jpg" />
         <ColorCard text="Sign up today" paragraph="Get 20% off" path="/signup" color="#cdd0cb" />
-        <ColorCard text="The gift guide" paragraph="lorem ipsum" path="/" color="#a59195" />
+        <ColorCard text="Spring inspiration" path="/products" color="#a59195" />
         <ImageCard text="Designers" path="/designers" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1611155887/products/pexels-cottonbro-4277097_wig5hy.jpg" />
       </SecondSection>
     </StartPageContainer>
@@ -48,24 +47,32 @@ const HeroSection = styled.div`
   background-position: center;
   background-size: cover;
   color: whitesmoke;
-  div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+`
+
+const HeroText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h1{
     font-size: 40px;
     font-weight: lighter;
-  }
-  h2{
-    font-size: 50px;
-    border: 0.3px solid whitesmoke;
-    padding: 10px;
-    color: whitesmoke;
-    font-weight: lighter;
-  }
+    letter-spacing: 1px;
+  } 
   p{
     font-size: 20px;
+  }
+`
+
+const LinkText = styled.h2`
+  font-size: 40px;
+  border: 0.3px solid whitesmoke;
+  padding: 10px;
+  color: whitesmoke;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  transition: ease 0.5s;
+  :hover{
+    opacity: 0.5;
   }
 `
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components'
 
+import { cart } from '../reducers/cart'
 import { user } from '../reducers/user'
 import { userLogin } from '../reducers/userThunks'
 import { LoginSignupLinks } from '../components/LoginSignupLinks'
@@ -10,7 +10,8 @@ import {
   Form,
   FormContainer,
   Label,
-  InputField
+  InputField,
+  LoggedIn
 } from '../lib/Form'
 import { Button } from '../lib/resuable/Button'
 import { Loader } from '../components/Loader'
@@ -38,7 +39,7 @@ export const Login = () => {
 
   const handleLogout = () => {
     dispatch(user.actions.setLogOut())
-    //dispatch(cart.actions.clearCart())
+    dispatch(cart.actions.clearCart())
     history.push('/')
   }
 
@@ -58,45 +59,29 @@ export const Login = () => {
           </div>
         </LoggedIn>}
       {!accessToken && 
-      <Form onSubmit={handleLogin}>
-        <Label>
-          Email
-          <InputField
-            type="email"
-            required
-            value={email}
-            onChange={(event) => setEmail(event.target.value)} />
-        </Label>
-        <Label>
-          Password
-          <InputField
-            type="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)} />
-        </Label>
-        <Button type="submit" text="Login" />
-        {isLoading && 
-          <Loader />}
-        {errorMessage && 
-          <p>Wrong Email/Password. Please try again.</p>}
-      </Form>}
+        <Form onSubmit={handleLogin}>
+          <Label>
+            Email
+            <InputField
+              type="email"
+              required
+              value={email}
+              onChange={(event) => setEmail(event.target.value)} />
+          </Label>
+          <Label>
+            Password
+            <InputField
+              type="password"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)} />
+          </Label>
+          <Button type="submit" text="Login" />
+          {isLoading && <Loader />}
+          {errorMessage && <p>Wrong Email/Password. Please try again.</p>}
+        </Form>}
     </FormContainer>
   )
 }
 
-const LoggedIn = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-  div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
-    @media (min-width: 1024px){
-      width: 40%;
-    }
-  }
-`
+

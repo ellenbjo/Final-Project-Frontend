@@ -9,10 +9,12 @@ export const DesktopNav = () => {
         <Link to="/products">
           <LinkText>PRODUCTS</LinkText>
         </Link>
+        <SlashSign>/</SlashSign>
         <Link to="/designers">
           <LinkText>DESIGNERS</LinkText>
         </Link>
-        <Link to="/">
+        <SlashSign>/</SlashSign>
+        <Link to="/about">
           <LinkText>ABOUT</LinkText>
         </Link>
       </div>
@@ -30,13 +32,18 @@ const NavContainer = styled.nav`
       display: flex;
       width: 60%;
       justify-content: flex-start;
+      align-items: baseline;
     }
   }
 `
 
+const SlashSign = styled.span`
+  margin: 0 20px 0 20px;
+`
+
 const LinkText = styled.p`
-  margin-right: 50px;
   font-weight: bold;
+  letter-spacing: 1.5px;
   :hover{
     text-decoration: underline;
   }

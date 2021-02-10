@@ -6,7 +6,7 @@ export const ImageCard = ({ text, path, imageUrl }) => {
   return (
     <CustomCard imageUrl={imageUrl}>
       <Link to={path}>
-        <h3>{text}</h3>
+        <LinkText>{text}</LinkText>
       </Link>
     </CustomCard>
   )
@@ -30,11 +30,16 @@ const CustomCard = styled.div`
     width: 25%;
     flex-grow: 1;
   }
-  h3{
-    font-size: 50px;
-    border: 0.3px solid whitesmoke;
-    padding: 5px 20px;
-    font-weight: lighter;
-    color: whitesmoke;
+`
+
+const LinkText = styled.h3`
+  font-size: 50px;
+  border: 0.3px solid whitesmoke;
+  padding: 5px 20px;
+  font-weight: lighter;
+  color: whitesmoke;
+  transition: ease 0.5s;
+  :hover{
+    opacity: 0.5;
   }
 `

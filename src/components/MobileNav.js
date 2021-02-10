@@ -20,13 +20,13 @@ export const MobileNav = ({ open, setOpen }) => {
             <p>Login</p>
           </Link>}
         {accessToken &&
-          <Link to="/users/profile" onClick={() => setOpen(false)}>
+          <Link to="/user/profile" onClick={() => setOpen(false)}>
             <p>My Page</p>
           </Link>}
         <Link to="/cart" onClick={() => setOpen(false)}>
           <p>Cart</p>
         </Link>
-        <Link to="/" onClick={() => setOpen(false)}>
+        <Link to="/about" onClick={() => setOpen(false)}>
           <p>About</p>
         </Link>
       </LinkWrapper>
@@ -45,6 +45,7 @@ const Nav = styled.nav`
   position: absolute;
   height: 100%;
   width: 100%;
+  z-index: 1;
   top: 0;
   left: 0;
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};

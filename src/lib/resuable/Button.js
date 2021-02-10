@@ -24,7 +24,14 @@ const CustomButton = styled.button`
   border: 0;
   padding: 8px;
   width: 100%;
+  transition: all 0.15s;
   @media (min-width: 700px){
     width: 70%;
+  }
+  :focus{
+    outline: none;
+  }
+  :active{
+    background: #aaaaaa;
   }
 `

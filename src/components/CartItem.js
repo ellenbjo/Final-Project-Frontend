@@ -25,17 +25,15 @@ export const CartItem = ({ product }) => {
       <ProductInfo>
         <p>{product.name}</p>
         <p>{product.price} kr</p>
-        <p>
-          <div>
-            <QuantityButton type="button" onClick={increaseQuantity}>
-              <Plus width="15" height="20" fill="#91a5a1" />
-            </QuantityButton>
-            <span>{product.quantity}</span>
-            <QuantityButton type="button" onClick={reduceQuantity}>
-              <Minus width="15" height="20" fill="#91a5a1" />
-            </QuantityButton>
-          </div>
-        </p>
+        <div>
+          <QuantityButton type="button" onClick={increaseQuantity}>
+            <Plus width="15" height="15" fill="#555555" />
+          </QuantityButton>
+          <span>{product.quantity}</span>
+          <QuantityButton type="button" onClick={reduceQuantity}>
+            <Minus width="15" height="15" fill="#555555" />
+          </QuantityButton>
+        </div>
       </ProductInfo>
     </CartProduct>
   )
@@ -95,11 +93,13 @@ const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 20px;
   div{
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    font-size: 30px;
+    font-size: 27px;
+    padding-bottom: 10px;
   }
   @media (min-width: 700px){
     align-items: baseline;

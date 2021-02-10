@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-//change name of login to user
+
 const initialState = {
   login: {
     accessToken: null,

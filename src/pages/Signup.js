@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components'
 
+import { cart } from '../reducers/cart'
 import { user } from '../reducers/user'
 import { userSignup } from '../reducers/userThunks'
 import { LoginSignupLinks } from '../components/LoginSignupLinks'
@@ -10,7 +10,8 @@ import {
   Form,
   FormContainer,
   Label,
-  InputField
+  InputField,
+  LoggedIn
 } from '../lib/Form'
 import { Button } from '../lib/resuable/Button'
 import { Loader } from '../components/Loader'
@@ -54,7 +55,7 @@ export const Signup = () => {
 
   const handleLogout = () => {
     dispatch(user.actions.setLogOut())
-    //dispatch(cart.actions.clearCart())
+    dispatch(cart.actions.clearCart())
     history.push('/')
   }
 
@@ -70,82 +71,64 @@ export const Signup = () => {
           </div>
         </LoggedIn>}
       {!accessToken && 
-      <Form onSubmit={handleSignup}>
-        <Label>
-          Name
-          <InputField
-            value={name}
-            required
-            onChange={(event) => setName(event.target.value)} />
-        </Label>
-        <Label>
-          Email
-          <InputField
-            type="email"
-            required
-            value={email}
-            onChange={(event) => setEmail(event.target.value)} />
-        </Label>
-        <Label>
-          Password
-          <InputField
-            type="password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)} />
-        </Label>
-        <Label>
-          Street
-          <InputField
-            value={street}
-            required
-            onChange={(event) => setStreet(event.target.value)} />
-        </Label>
-        <Label>
-          Postal code
-          <InputField
-            value={postalCode}
-            required
-            onChange={(event) => setPostalCode(event.target.value)} />
-        </Label>
-        <Label>
-          City
-          <InputField
-            type="text"
-            value={city}
-            required
-            onChange={(event) => setCity(event.target.value)} />
-        </Label>
-        <Label>
-          Phone number
-          <InputField
-            value={phoneNumber}
-            required
-            onChange={(event) => setPhoneNumber(event.target.value)} />
-        </Label>
-        <Button type="submit" text="Sign up" />
-        {isLoading &&
-          <Loader />}
-        {errorMessage &&
-          <p>Please fill in the required fields.</p>}
-      </Form>}
+        <Form onSubmit={handleSignup}>
+          <Label>
+            Name
+            <InputField
+              value={name}
+              required
+              onChange={(event) => setName(event.target.value)} />
+          </Label>
+          <Label>
+            Email
+            <InputField
+              type="email"
+              required
+              value={email}
+              onChange={(event) => setEmail(event.target.value)} />
+          </Label>
+          <Label>
+            Password
+            <InputField
+              type="password"
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)} />
+          </Label>
+          <Label>
+            Street
+            <InputField
+              value={street}
+              required
+              onChange={(event) => setStreet(event.target.value)} />
+          </Label>
+          <Label>
+            Postal code
+            <InputField
+              value={postalCode}
+              required
+              onChange={(event) => setPostalCode(event.target.value)} />
+          </Label>
+          <Label>
+            City
+            <InputField
+              type="text"
+              value={city}
+              required
+              onChange={(event) => setCity(event.target.value)} />
+          </Label>
+          <Label>
+            Phone number
+            <InputField
+              value={phoneNumber}
+              required
+              onChange={(event) => setPhoneNumber(event.target.value)} />
+          </Label>
+          <Button type="submit" text="Sign up" />
+          {isLoading && <Loader />}
+          {errorMessage && <p>Please fill in the required fields.</p>}
+        </Form>}
     </FormContainer>
-
   )
 }
 
-const LoggedIn = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
-  div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
-    @media (min-width: 1024px){
-      width: 40%;
-    }
-  }
-`

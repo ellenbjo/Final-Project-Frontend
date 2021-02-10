@@ -13,8 +13,6 @@ export const Cart = () => {
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.login.accessToken)
   const products = useSelector((store) => store.cart.products)
-  // reduce executes a reducer function (that you provide) on each 
-  //element of the array, resulting in single output value.
   const totalPrice = useSelector((store) => store.cart.products.reduce((total, product) => (total + (product.price * product.quantity)), 0))
 
   const handleRemoveAll = () => {
@@ -40,20 +38,19 @@ export const Cart = () => {
         <EmptyCartContainer>
           <ShoppingCart height="50" width="50" fill="#555555" />
           <p>Your cart is empty.</p>
-          <Button type="button" text="Contine Shopping" onButtonClick={handleGoToProducts} />
+          <Button type="button" text="Continue Shopping" onButtonClick={handleGoToProducts} />
         </EmptyCartContainer>}
       {products.length > 0 &&
         <CartContainer>
           <CartProducts product={products} />
-          <p>Total Price: {totalPrice}kr</p>
-          {!accessToken &&
-          <p>Please log in to continue to the check out</p>}
+          <TotalPrice>Total Price: {totalPrice}kr</TotalPrice>
+          {!accessToken && <p>Please log in to continue to the check out</p>}
           <ButtonWrapper>
             <Button type="button" text="Remove all" onButtonClick={handleRemoveAll} />
             {accessToken &&
-            <Button type="button" text="Continue to check out" onButtonClick={handleGoToCheckout} />}
+              <Button type="button" text="Continue to check out" onButtonClick={handleGoToCheckout} />}
             {!accessToken &&
-            <Button type="button" text="Log in" onButtonClick={handleGoToLogin} />}
+              <Button type="button" text="Log in" onButtonClick={handleGoToLogin} />}
           </ButtonWrapper>
         </CartContainer>}
     </CartPageContainer>
@@ -91,4 +88,8 @@ const ButtonWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 70%;
+`
+
+const TotalPrice = styled.p`
+  font-size: 20px;
 `

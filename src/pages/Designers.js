@@ -16,6 +16,7 @@ export const Designers = () => {
   const dispatch = useDispatch()
   const isLoading = useSelector((store) => store.ui.loading)
   const [designers, setDesigners] = useState([])
+  const [error, setError] = useState('')
 
   const fetchDesigners = () => {
     const URL = 'https://ellen-final-project.herokuapp.com/designers'
@@ -26,7 +27,10 @@ export const Designers = () => {
         dispatch(ui.actions.setLoading(false))
         setDesigners(json)
       })
-      .catch((error) => console.log(error))
+      .catch((err) => {
+        dispatch(ui.actions.setLoading(false))
+        setError(err)
+      })
   }
 
   useEffect(() => {
@@ -41,14 +45,17 @@ export const Designers = () => {
       </PageHeader>
       <AllDesignersContainer>
         {designers.map((designer) => (
-          <Link to={`designers/${designer._id}/products`}>
-            <DesignerCard key={designer._id} imgUrl={designer.imageUrl}>
-              <TextBox>
-                <h3>{designer.name}</h3>
-              </TextBox>
-            </DesignerCard>
+          <Link key={designer._id} to={`designers/${designer._id}/products`}>
+            <Fade bottom>
+              <DesignerCard key={designer._id} imgUrl={designer.imageUrl}>
+                <TextBox>
+                  <h3>{designer.name}</h3>
+                </TextBox>
+              </DesignerCard>
+            </Fade>
           </Link>
         ))}
+        {error && <p>No Designers were found. Please try to load the page again.</p>}
       </AllDesignersContainer>
       {isLoading && <Loader />}
     </DesignersPageContainer>
@@ -60,11 +67,15 @@ const DesignersPageContainer = styled(ProductsPageContainer)`
 `
 
 const AllDesignersContainer = styled(AllProductsContainer)`
+  div{
+    width: 100%;
+  }
   a{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10px;
     @media (min-width: 700px){
       width: 45%;
       margin: 10px;
@@ -80,7 +91,6 @@ const DesignerCard = styled.div`
   height: 300px;
   justify-content: center;
   h3{
-    color: whitesmoke;
     font-size: 25px;
   }
   @media (min-width: 700px){
@@ -88,12 +98,9 @@ const DesignerCard = styled.div`
   }
 `
 
-const TextBox = styled.div`
+const TextBox = styled.span`
   background: rgba(205,208,203,0.5);
+  color: whitesmoke;
   text-align: center;
   width: 40%;
-  transition: .5s ease;
-  :hover{
-    transform: scale(1.05);
-  }
 `

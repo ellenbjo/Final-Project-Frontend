@@ -36,3 +36,19 @@ export const InputField = styled.input`
   height: 30px;
   outline: none;
 `
+
+export const LoggedIn = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 80%;
+div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  @media (min-width: 1024px){
+    width: 40%;
+  }
+}
+`

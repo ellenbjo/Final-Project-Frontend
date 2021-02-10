@@ -20,7 +20,7 @@ const BurgerMenu = styled.button`
   background: transparent;
   border: none;
   padding: 0;
-  z-index: 1;
+  z-index: 10;
   margin-left: 20px;
   margin-right: 15px;
   @media (min-width: 1024px){

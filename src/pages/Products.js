@@ -19,6 +19,7 @@ export const Products = () => {
   const dispatch = useDispatch()
   const isLoading = useSelector((store) => store.ui.loading)
   const [products, setProducts] = useState([])
+  const [error, setError] = useState('')
 
   const fetchProducts = () => {
     const URL = 'https://ellen-final-project.herokuapp.com/products'
@@ -29,7 +30,10 @@ export const Products = () => {
         dispatch(ui.actions.setLoading(false))
         setProducts(json)
       })
-      .catch((error) => console.error(error))
+      .catch((err) => {
+        dispatch(ui.actions.setLoading(false))
+        setError(err)
+      })
   }
 
   useEffect(() => {
@@ -51,6 +55,7 @@ export const Products = () => {
                   <ProductImage src={product.imageUrl} alt={product.name} />
                 </ImageWrapper>
                 <ProductText>
+                  {console.log(product.name)}
                   <h3>{product.name}</h3>
                   <p>{product.price} kr</p>
                 </ProductText>
@@ -58,6 +63,7 @@ export const Products = () => {
             </Fade>
           </ProductCard>
         ))}
+        {error && <p>No Products were found. Please try to load the page again.</p>}
       </AllProductsContainer>
       {isLoading && <Loader />}
     </ProductsPageContainer>

@@ -24,7 +24,7 @@ export const Header = () => {
           </Link>
           <List>
             {accessToken &&
-              <Link to="/users/profile">
+              <Link to="/user/profile">
                 <LinkText>My Page</LinkText>
               </Link>}
             {!accessToken &&
@@ -92,12 +92,18 @@ const LinkText = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
+  letter-spacing: 1px;
 `
 const CompanyName = styled.h2`
   color: ${({ open }) => open ? 'whitesmoke' : '#91A5A1'};
   font-family:'Bodoni Moda', serif;
   font-size: 25px;
   position: relative;
+  z-index: 1;
+  letter-spacing: 3px;
+  ::first-letter{
+    font-size: 150%;
+  }
   @media (min-width: 700px){
     font-size: 30px;
   }

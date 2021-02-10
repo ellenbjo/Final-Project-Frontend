@@ -4,18 +4,17 @@ import { useHistory } from 'react-router-dom'
 import moment from 'moment'
 import styled from 'styled-components'
 
+import { cart } from '../reducers/cart'
 import { user } from '../reducers/user'
-/*import { UserFavourites } from '../components/UserFavourites'*/
 import { Button } from '../lib/resuable/Button'
+import { PersonalInfo } from '../components/PersonalInfo'
 
 export const ProfilePage = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const accessToken = useSelector((store) => store.user.login.accessToken)
-  const userInfo = useSelector((store) => store.user.login)
-
+  const name = useSelector((store) => store.user.login.name)
   const [orders, setOrders] = useState([])
-  /*const [favourites, setFavourites] = useState([])*/
 
   const fetchOrderHistory = async () => {
     const USER_ORDERS_URL = 'https://ellen-final-project.herokuapp.com/users/user/orders'
@@ -37,34 +36,13 @@ export const ProfilePage = () => {
       })
   }
 
-  /*const fetchUserFavourites = async () => {
-    const USER_FAVOURITES_URL = 'https://ellen-final-project.herokuapp.com/users/user/favourites'
-
-    fetch(USER_FAVOURITES_URL, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: accessToken
-      }
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Access denied. Please login to access this page.')
-        } return response.json()
-      })
-      .then((json) => {
-        setFavourites(json)
-      })
-  }*/
-
   useEffect(() => {
     fetchOrderHistory()
-    /*fetchUserFavourites()*/
   }, [])
 
   const handleLogout = () => {
     dispatch(user.actions.setLogOut())
-    //dispatch(cart.actions.clearCart())
+    dispatch(cart.actions.clearCart())
     history.push('/')
   }
 
@@ -80,39 +58,36 @@ export const ProfilePage = () => {
     <>
       {accessToken &&
         <ProfilePageContainer>
-          <h2>Welcome {userInfo.name}</h2>
-          <PersonalInfo>
-            <div>
-              <h3>Personal info</h3>
-              <p><Bold>Email:</Bold> {userInfo.email}</p>
-              <p><Bold>PhoneNumber:</Bold> {userInfo.phoneNumber}</p>
-              <p><Bold>Address:</Bold></p>
-              <p>{userInfo.street}</p>
-              <p>{userInfo.postalCode}</p>
-              <p>{userInfo.city}</p>
-            </div>
-            <div>
+          <h2>Welcome {name}</h2>
+          <PersonalInfoContainer>
+            <PersonalInfo />
+            <Border>
               <h3>Order history</h3>
-              <ul>
+              {orders.length === 0 && <p>No orders yet</p>}
+              <OrderList>
                 {orders.map((order) => (
-                  <li key={order._id}>Order: {moment(order.createdAt).format('YYYY-MM-DD')}</li>
+                  <OrderItem key={order._id}>
+                    <p><Bold>Order:</Bold> {moment(order.createdAt).format('YYYY-MM-DD')}</p>
+                    {order.products.map((product) => (
+                      <p key={product._id}>
+                        {product.quantity} {product.name}
+                      </p>
+                    ))}
+                  </OrderItem>
                 ))}
-              </ul>
-            </div>
-          </PersonalInfo>
-         {/* <div>
-            <h2>Your favourites</h2>
-            {favourites.map((favourite) => (
-              <UserFavourites key={favourite._id} favourite={favourite} />
-            ))}
-            </div> */}
+              </OrderList>
+            </Border>
+          </PersonalInfoContainer>
           <Button 
-            type="button" 
-            text="Go to cart" 
+            type="button"
+            text="Go to cart"
             onButtonClick={handleGoToCart} />
-          <Button type="button" text="Log out" onButtonClick={handleLogout} />
+          <Button
+            type="button"
+            text="Log out"
+            onButtonClick={handleLogout} />
         </ProfilePageContainer>}
-      {!accessToken && 
+      {!accessToken &&
         <ProfilePageContainer>
           <p>Please log in to access your page</p>
           <Button
@@ -138,24 +113,36 @@ const ProfilePageContainer = styled.section`
     }
   }
 `
-const PersonalInfo = styled.div`
+const PersonalInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 70%;
   color: whitesmoke;
   background: #91A5A1;
   padding: 20px;
-  div{
-    border: 0.5px solid whitesmoke;
-    padding: 20px;
-  }
   @media (min-width: 1024px){
     width: 40%;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    padding-top: 40px;
   }
 `
+
+const Border = styled.div`
+  border: 0.5px solid whitesmoke;
+  padding: 20px;
+  @media (min-width: 1024px){
+    width: 90%;
+  }
+`
+
+const OrderList = styled.ul`
+  padding-left: 0;
+`
+
+const OrderItem = styled.li`
+  border-top: 0.5px solid whitesmoke;
+`
+
 const Bold = styled.span`
   font-weight: bolder;
 `

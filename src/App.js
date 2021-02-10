@@ -25,6 +25,7 @@ import { Signup } from './pages/Signup'
 import { ProfilePage } from './pages/ProfilePage'
 import { Cart } from './pages/Cart'
 import { Checkout } from './pages/Checkout'
+import { About } from './pages/About'
 import { NotFound } from './pages/NotFound'
 
 const reducer = combineReducers({
@@ -83,7 +84,7 @@ export const App = () => {
             <Route path="/signup">
               <Signup />
             </Route>
-            <Route path="/users/profile">
+            <Route path="/user/profile">
               <ProfilePage />
             </Route>
             <Route path="/cart">
@@ -91,6 +92,9 @@ export const App = () => {
             </Route>
             <Route path="/checkout">
               <Checkout />
+            </Route>
+            <Route path="/about">
+              <About />
             </Route>
             <Route path="/404">
               <NotFound />

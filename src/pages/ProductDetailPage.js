@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
 import { ui } from '../reducers/ui'
-//import { FavouriteButton } from '../components/FavouriteButton'
 import { Button } from '../lib/resuable/Button'
 import { Loader } from '../components/Loader'
 
@@ -16,6 +15,7 @@ export const ProductDetailPage = () => {
   const { productId } = useParams()
   const [product, setProduct] = useState([])
   const [addedToCart, setAddedToCart] = useState(false)
+  const [error, setError] = useState('')
 
   const fetchProductDetails = (id) => {
     const URL = `https://ellen-final-project.herokuapp.com/products/${id}`
@@ -26,7 +26,10 @@ export const ProductDetailPage = () => {
         dispatch(ui.actions.setLoading(false))
         setProduct(json)
       })
-      .catch((error) => console.error(error))
+      .catch((err) => {
+        dispatch(ui.actions.setLoading(false))
+        setError(err)
+      })
   }
 
   useEffect(() => {
@@ -51,21 +54,25 @@ export const ProductDetailPage = () => {
   return (
     <ProductPageContainer>
       <ProductDetailsCard>
-        <ProductImage src={product.imageUrl} alt={product.name} />
-        <InfoWrapper>
-          {isLoading && <Loader />}
-          <Border>
-            <h3>{product.name}</h3>
-            <p>{product.price} kr</p>
-            <p>Dimensions: {product.dimensions}</p>
-            {addedToCart && 
-              <p>Product is added to cart!</p>}
-            <ButtonWrapper>
-              <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
-              <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
-            </ButtonWrapper>
-          </Border>
-        </InfoWrapper>
+        <>
+          <ProductImage src={product.imageUrl} alt={product.name} />
+          <InfoWrapper>
+            {isLoading && <Loader />}
+            <Border>
+              <h3>{product.name}</h3>
+              <p>{product.price} kr</p>
+              <p>Designer: {product.designerName}</p>
+              <p>Dimensions: {product.dimensions}</p>
+              {addedToCart && 
+                <p>Product is added to cart!</p>}
+              <ButtonWrapper>
+                <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
+                <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
+              </ButtonWrapper>
+            </Border>
+          </InfoWrapper>
+          {error && <p>No product details were found. Please try loading the page again.</p>}
+        </>
       </ProductDetailsCard>
     </ProductPageContainer>
   )
@@ -143,6 +150,7 @@ const ProductImage = styled.img`
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
   @media (min-width: 700px){
     padding-top: 40px;
     align-items: center;

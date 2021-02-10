@@ -4,25 +4,35 @@ import styled from 'styled-components'
 export const Footer = () => {
   return (
     <CustomFooter>
-      <div>
-        <ul>
+      <ListContainer>
+        <List>
           <a
             tagret="_blank"
             href="https://portfolio-ellen.netlify.app/"
             rel="noopener noreferrer">
             <li>
-            Portfolio
+              Portfolio
             </li>
           </a>
           <a
-            tagret="_blank"
+            target="_blank"
             href="https://github.com/ellenbjo"
             rel="noopener noreferrer">
-          Github
+            <li>
+              Github
+            </li>
           </a>
-        </ul>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/ellen-bj%C3%B6rkman-86947a104/"
+            rel="noopener noreferrer">
+            <li>
+              Linkedin
+            </li>
+          </a>
+        </List>
         <p>Made by Ellen Björkman</p>
-      </div>
+      </ListContainer>
     </CustomFooter>
   )
 }
@@ -32,4 +42,26 @@ const CustomFooter = styled.footer`
   background: #91A5A1;
   margin-top: 20px;
   padding-bottom: 100px;
+  @media (min-width: 1024px){
+    justify-content: center;
+  }
+`
+
+const ListContainer = styled.div`
+  padding: 20px;
+  font-size: 17px;
+  opacity: 0.8;  
+  @media (min-width: 1024px){
+    padding-left: 0;
+    width: 60%;
+  }
+`
+
+const List = styled.ul`
+  padding-left: 0;
+  a{
+    :hover{
+      text-decoration: underline;
+    }
+  }
 `
