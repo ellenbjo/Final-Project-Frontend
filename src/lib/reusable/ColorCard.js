@@ -40,14 +40,14 @@ const CustomCard = styled.div`
 `
 
 const LinkText = styled.h3`
-  font-size: 35px;
+  font-size: 27px;
   padding: 5px 20px 0;
   font-weight: lighter;
   color: whitesmoke;
 `
 
 const LinkParagraph = styled.p`
-  font-size: 30px;
+  font-size: 22px;
   color: whitesmoke;
   margin-top: 0;
 `

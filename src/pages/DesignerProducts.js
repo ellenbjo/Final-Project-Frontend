@@ -10,8 +10,7 @@ import {
   ProductCard,
   ProductImage,
   ImageWrapper,
-  ProductText,
-  PageHeader
+  ProductText
 } from '../lib/Products'
 import { Loader } from '../components/Loader'
 

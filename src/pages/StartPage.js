@@ -67,7 +67,7 @@ const HeroText = styled.div`
 const LinkText = styled.h2`
   font-size: 20px;
   border: 0.3px solid whitesmoke;
-  padding: 20px 24px;
+  padding: 17px 24px;
   color: whitesmoke;
   font-weight: lighter;
   letter-spacing: 1px;
