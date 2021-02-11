@@ -91,5 +91,5 @@ const ButtonWrapper = styled.div`
 `
 
 const TotalPrice = styled.p`
-  font-size: 20px;
+  font-size: 18px;
 `

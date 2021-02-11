@@ -62,9 +62,6 @@ const CartProduct = styled.div`
     margin-left: 0;
     margin-right: 0;
   }
-  @media (min-width: 1500px){
-    width: 40%;
-  }
 `
 
 const ImageWrapper = styled.div`
@@ -72,10 +69,10 @@ const ImageWrapper = styled.div`
   justify-content: center;
   width: 90%;
   @media (min-width: 700px){
-    width: 50%;
-  }
-  @media (min-width: 700px){
     width: 60%;
+  }
+  @media (min-width: 1024px){
+    width: 50%;
   }
 `
 
@@ -93,7 +90,7 @@ const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
   div{
     display: flex;
     align-items: baseline;
@@ -105,6 +102,7 @@ const ProductInfo = styled.div`
     align-items: baseline;
     justify-content: center;
     margin-left: 10px;
+    padding: 10px;
   }
 `
 

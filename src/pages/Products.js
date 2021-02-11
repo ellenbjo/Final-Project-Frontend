@@ -44,7 +44,7 @@ export const Products = () => {
   return (
     <ProductsPageContainer>
       <PageHeader>
-        <h2>All Products</h2>
+        <h2>All products</h2>
       </PageHeader>
       <AllProductsContainer>
         {products.map((product) => (
@@ -55,7 +55,6 @@ export const Products = () => {
                   <ProductImage src={product.imageUrl} alt={product.name} />
                 </ImageWrapper>
                 <ProductText>
-                  {console.log(product.name)}
                   <h3>{product.name}</h3>
                   <p>{product.price} kr</p>
                 </ProductText>

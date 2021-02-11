@@ -142,9 +142,6 @@ const ProductImage = styled.img`
     width: 50%; 
     padding: 20px;
   }
-  @media (min-width: 1024px){
-    width: 50%;
-  }
 `
 
 const ButtonWrapper = styled.div`

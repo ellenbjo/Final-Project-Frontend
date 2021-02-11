@@ -41,7 +41,7 @@ export const Designers = () => {
   return (
     <DesignersPageContainer>
       <PageHeader>
-        <h2>All Designers</h2>
+        <h2>All designers</h2>
       </PageHeader>
       <AllDesignersContainer>
         {designers.map((designer) => (
