@@ -13,7 +13,7 @@ export const StartPage = () => {
           <h1>
             NEW ARRIVALS
           </h1>
-          <p>Carefully selected designs for spring.</p>
+          <p>Carefully selected designs.</p>
           <Link to="/products">
             <LinkText>Shop Products</LinkText>
           </Link>
@@ -70,7 +70,6 @@ const LinkText = styled.h2`
   padding: 17px 24px;
   color: whitesmoke;
   font-weight: lighter;
-  letter-spacing: 1px;
   transition: ease 0.5s;
   :hover{
     background: rgba(46, 49, 49, 0.5);
