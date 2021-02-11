@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
 import { ui } from '../reducers/ui'
-import { Button } from '../lib/resuable/Button'
+import { Button } from '../lib/reusable/Button'
 import { Loader } from '../components/Loader'
 
 export const ProductDetailPage = () => {

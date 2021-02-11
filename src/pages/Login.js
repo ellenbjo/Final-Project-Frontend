@@ -13,7 +13,7 @@ import {
   InputField,
   LoggedIn
 } from '../lib/Form'
-import { Button } from '../lib/resuable/Button'
+import { Button } from '../lib/reusable/Button'
 import { Loader } from '../components/Loader'
 
 export const Login = () => {

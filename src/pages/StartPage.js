@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { ImageCard } from '../lib/resuable/ImageCard'
-import { ColorCard } from '../lib/resuable/ColorCard'
+import { ImageCard } from '../lib/reusable/ImageCard'
+import { ColorCard } from '../lib/reusable/ColorCard'
 
 export const StartPage = () => {
   return (

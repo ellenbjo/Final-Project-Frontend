@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { Button } from '../lib/resuable/Button'
+import { Button } from '../lib/reusable/Button'
 
 export const NotFound = () => {
   const history = useHistory()

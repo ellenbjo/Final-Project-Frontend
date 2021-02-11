@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
 import { user } from '../reducers/user'
-import { Button } from '../lib/resuable/Button'
+import { Button } from '../lib/reusable/Button'
 import { PersonalInfo } from '../components/PersonalInfo'
 
 export const ProfilePage = () => {
