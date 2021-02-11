@@ -119,19 +119,19 @@ const InfoWrapper = styled.div`
 const Border = styled.div`
   border: none;
   h3{
-    font-size: 25px;
+    font-size: 18px;
     letter-spacing: 1.5px;
   }
   p{
-    font-size: 20px;
+    font-size: 16px;
     letter-spacing: 1.5px;
   }
   @media (min-width: 700px){
-  border: 0.5px solid whitesmoke;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+    border: 0.5px solid whitesmoke;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
   }
 `
 
@@ -154,5 +154,8 @@ const ButtonWrapper = styled.div`
   @media (min-width: 700px){
     padding-top: 40px;
     align-items: center;
+  }
+  @media (min-width: 1024px){
+    padding-top: 60px;
   }
 `
