@@ -8,16 +8,14 @@ export const ProductsPageContainer = styled.section`
 `
 
 export const PageHeader = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: flex-start;
-  margin-left: 20px;
-  @media (min-width: 700px){
-    margin-left: 50px;
+  h2{
+    font-size: 20px;
   }
   @media (min-width: 1024px){
     width: 60%;
-    margin-left: 0;
   }
 `
 
@@ -65,11 +63,8 @@ export const ImageWrapper = styled.div`
   @media (min-width: 700px){
     height: 400px;
   }
-  @media (min-width: 1024px){
-    height: 400px;
-  }
   @media (min-width: 1600px){
-    height: 430px;
+    height: 460px;
   }
 `
 
@@ -81,11 +76,11 @@ export const ProductText = styled.div`
   height: 20%;
   padding: 0 10px 0 10px;
   h3{
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 8px;
   }
   p{
-    font-size: 18px;
+    font-size: 16px;
     align-self: flex-end;
   }
   @media (min-width: 700px){

@@ -57,6 +57,7 @@ const HeroText = styled.div`
     font-size: 40px;
     font-weight: lighter;
     letter-spacing: 1px;
+    margin-bottom: 0;
   } 
   p{
     font-size: 20px;
@@ -64,15 +65,15 @@ const HeroText = styled.div`
 `
 
 const LinkText = styled.h2`
-  font-size: 40px;
+  font-size: 20px;
   border: 0.3px solid whitesmoke;
-  padding: 10px;
+  padding: 20px 24px;
   color: whitesmoke;
   font-weight: lighter;
   letter-spacing: 1px;
   transition: ease 0.5s;
   :hover{
-    opacity: 0.5;
+    background: rgba(46, 49, 49, 0.5);
   }
 `
 
@@ -89,7 +90,7 @@ const SecondSection = styled.div`
   @media (min-width: 700px){
     flex-direction: row;
     flex-wrap: wrap;
-    padding-top: 50px;
+    padding-top: 20px;
     div{
       :nth-of-type(3){
           display: flex;

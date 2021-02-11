@@ -94,7 +94,7 @@ const DesignerCard = styled.div`
   height: 300px;
   justify-content: center;
   h3{
-    font-size: 25px;
+    font-size: 20px;
   }
   @media (min-width: 700px){
     background-position: center;
@@ -102,8 +102,14 @@ const DesignerCard = styled.div`
 `
 
 const TextBox = styled.span`
-  background: rgba(205,208,203,0.5);
   color: whitesmoke;
+  border: 0.5px solid whitesmoke;
   text-align: center;
   width: 40%;
+  min-width: fit-content;
+  padding: 0px 20px;
+  transition: ease 0.5s;
+  :hover{
+    background: rgba(46, 49, 49, 0.3);
+  }
 `

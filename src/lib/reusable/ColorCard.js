@@ -6,12 +6,10 @@ export const ColorCard = ({ text, path, paragraph, color }) => {
   return (
     <CustomCard color={color}>
       <Link to={path}>
-      <Border>
-        
+        <Border>
           <LinkText>{text}</LinkText>
           <LinkParagraph>{paragraph}</LinkParagraph>
-        
-      </Border>
+        </Border>
       </Link>
     </CustomCard>
   )
@@ -42,15 +40,14 @@ const CustomCard = styled.div`
 `
 
 const LinkText = styled.h3`
-  font-size: 50px;
-  padding: 5px 20px;
+  font-size: 35px;
+  padding: 5px 20px 0;
   font-weight: lighter;
   color: whitesmoke;
 `
 
 const LinkParagraph = styled.p`
-  font-size: 45px;
-  font-family: 'Source Serif Pro', serif;
+  font-size: 30px;
   color: whitesmoke;
   margin-top: 0;
 `

@@ -10,24 +10,24 @@ export const MobileNav = ({ open, setOpen }) => {
     <Nav open={open}>
       <LinkWrapper>
         <Link to="/products" onClick={() => setOpen(false)}>
-          <p>Products</p>
+          <LinkText>Products</LinkText>
         </Link>
         <Link to="/designers" onClick={() => setOpen(false)}>
-          <p>Designers</p>
+          <LinkText>Designers</LinkText>
         </Link>
         {!accessToken &&
           <Link to="/login" onClick={() => setOpen(false)}>
-            <p>Login</p>
+            <LinkText>Login</LinkText>
           </Link>}
         {accessToken &&
           <Link to="/user/profile" onClick={() => setOpen(false)}>
-            <p>My Page</p>
+            <LinkText>My Page</LinkText>
           </Link>}
         <Link to="/cart" onClick={() => setOpen(false)}>
-          <p>Cart</p>
+          <LinkText>Cart</LinkText>
         </Link>
         <Link to="/about" onClick={() => setOpen(false)}>
-          <p>About</p>
+          <LinkText>About</LinkText>
         </Link>
       </LinkWrapper>
     </Nav>
@@ -55,12 +55,14 @@ const Nav = styled.nav`
   @media (min-width: 1024px){
     display: none;
   }
-  p{
-    font-size: 25px;
-    color: whitesmoke;
-    font-weight: bolder;
-  }
 `
+
+const LinkText = styled.p`
+  font-size: 20px;
+  color: whitesmoke;
+  margin-bottom: 0;
+`
+
 const LinkWrapper = styled.div`
   display: flex;
   flex-direction: column;

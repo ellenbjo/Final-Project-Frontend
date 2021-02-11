@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
 import { sendOrder } from '../reducers/orderThunk'
-import { Button } from '../lib/resuable/Button'
+import { Button } from '../lib/reusable/Button'
 import { ReactComponent as Box } from '../svg:s/box.svg'
 
 export const Checkout = () => {

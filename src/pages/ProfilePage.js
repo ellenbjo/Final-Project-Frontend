@@ -78,7 +78,7 @@ export const ProfilePage = () => {
               </OrderList>
             </Border>
           </PersonalInfoContainer>
-          <Button 
+          <Button
             type="button"
             text="Go to cart"
             onButtonClick={handleGoToCart} />
@@ -120,8 +120,11 @@ const PersonalInfoContainer = styled.div`
   color: whitesmoke;
   background: #91A5A1;
   padding: 20px;
+  @media (min-width: 700px){
+    width: 50%;
+  }
   @media (min-width: 1024px){
-    width: 40%;
+    width: 30%;
     align-items: center;
     padding-top: 40px;
   }

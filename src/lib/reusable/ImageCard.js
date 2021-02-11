@@ -33,13 +33,13 @@ const CustomCard = styled.div`
 `
 
 const LinkText = styled.h3`
-  font-size: 50px;
+  font-size: 20px;
   border: 0.3px solid whitesmoke;
-  padding: 5px 20px;
+  padding: 17px 24px;
   font-weight: lighter;
   color: whitesmoke;
   transition: ease 0.5s;
   :hover{
-    opacity: 0.5;
+    background: rgba(46, 49, 49, 0.3);
   }
 `
