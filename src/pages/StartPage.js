@@ -13,7 +13,7 @@ export const StartPage = () => {
           <h1>
             NEW ARRIVALS
           </h1>
-          <p>Carefully selected designs.</p>
+          <p>Carefully selected designs</p>
           <Link to="/products">
             <LinkText>Shop products</LinkText>
           </Link>

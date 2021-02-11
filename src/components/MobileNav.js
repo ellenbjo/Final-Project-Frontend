@@ -17,7 +17,7 @@ export const MobileNav = ({ open, setOpen }) => {
         </Link>
         {!accessToken &&
           <Link to="/login" onClick={() => setOpen(false)}>
-            <LinkText>Login</LinkText>
+            <LinkText>Log in</LinkText>
           </Link>}
         {accessToken &&
           <Link to="/user/profile" onClick={() => setOpen(false)}>

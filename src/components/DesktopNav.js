@@ -42,7 +42,7 @@ const SlashSign = styled.span`
 `
 
 const LinkText = styled.p`
-  font-weight: bold;
+  font-weight: 600;
   letter-spacing: 1.5px;
   :hover{
     text-decoration: underline;
