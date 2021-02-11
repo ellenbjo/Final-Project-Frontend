@@ -15,12 +15,12 @@ export const StartPage = () => {
           </h1>
           <p>Carefully selected designs.</p>
           <Link to="/products">
-            <LinkText>Shop Products</LinkText>
+            <LinkText>Shop products</LinkText>
           </Link>
         </HeroText>
       </HeroSection>
       <SecondSection>
-        <ImageCard text="Shop Vases" path="/products" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1612278091/products/pexels-elika-margaretha-4898516_xuavth.jpg" />
+        <ImageCard text="Shop vases" path="/products" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1612278091/products/pexels-elika-margaretha-4898516_xuavth.jpg" />
         <ColorCard text="Sign up today" paragraph="Get 20% off" path="/signup" color="#cdd0cb" />
         <ColorCard text="Spring inspiration" path="/products" color="#a59195" />
         <ImageCard text="Designers" path="/designers" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1611155887/products/pexels-cottonbro-4277097_wig5hy.jpg" />
