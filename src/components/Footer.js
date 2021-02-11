@@ -7,7 +7,7 @@ export const Footer = () => {
       <ListContainer>
         <List>
           <a
-            tagret="_blank"
+            target="_blank"
             href="https://portfolio-ellen.netlify.app/"
             rel="noopener noreferrer">
             <li>
