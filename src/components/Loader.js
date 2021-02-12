@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const Loader = () => {
   return (
     <LoaderContainer>
-      <h2>Loading...</h2>
+      <Loader>Loading...</Loader>
     </LoaderContainer>
   )
 }
@@ -12,4 +12,8 @@ export const Loader = () => {
 const LoaderContainer = styled.div`
   color: #555555;
   text-align: center;
+`
+
+const Loader = styled.div`
+  font-size: 18px;
 `
