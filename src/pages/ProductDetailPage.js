@@ -59,8 +59,14 @@ export const ProductDetailPage = () => {
           <Border>
             <h3>{product.name}</h3>
             <p>{product.price} kr</p>
-            <p>Designer: {product.designerName}</p>
-            <p>Dimensions: {product.dimensions}</p>
+            <div>
+              <p>Designer:</p>
+              <p>{product.designerName}</p>
+            </div>
+            <div>
+              <p>Dimensions:</p> 
+              <p>{product.dimensions}</p>
+            </div>
             {addedToCart && 
               <p>Product is added to cart!</p>}
             <ButtonWrapper>
