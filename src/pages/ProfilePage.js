@@ -8,6 +8,7 @@ import { cart } from '../reducers/cart'
 import { user } from '../reducers/user'
 import { Button } from '../lib/reusable/Button'
 import { PersonalInfo } from '../components/PersonalInfo'
+import { OrderItem } from '../components/OrderItem'
 
 export const ProfilePage = () => {
   const dispatch = useDispatch()
@@ -32,7 +33,8 @@ export const ProfilePage = () => {
         } return response.json()
       })
       .then((json) => {
-        setOrders(json)
+        const sortedOrders = json.sort((a, b) => moment(b.createdAt).diff(a.createdAt))
+        setOrders(sortedOrders)
       })
   }
 
@@ -66,14 +68,7 @@ export const ProfilePage = () => {
               {orders.length === 0 && <p>No orders yet</p>}
               <OrderList>
                 {orders.map((order) => (
-                  <OrderItem key={order._id}>
-                    <p><Bold>Order:</Bold> {moment(order.createdAt).format('YYYY-MM-DD')}</p>
-                    {order.products.map((product) => (
-                      <p key={product._id}>
-                        {product.quantity} {product.name}
-                      </p>
-                    ))}
-                  </OrderItem>
+                  <OrderItem key={order._id} order={order}/>
                 ))}
               </OrderList>
             </Border>
@@ -140,12 +135,4 @@ const Border = styled.div`
 
 const OrderList = styled.ul`
   padding-left: 0;
-`
-
-const OrderItem = styled.li`
-  border-top: 0.5px solid whitesmoke;
-`
-
-const Bold = styled.span`
-  font-weight: bolder;
 `

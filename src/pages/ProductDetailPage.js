@@ -52,32 +52,33 @@ export const ProductDetailPage = () => {
 
   return (
     <ProductPageContainer>
-      <ProductDetailsCard>
-        <ProductImage src={product.imageUrl} alt={product.name} />
-        <InfoWrapper>
-          {isLoading && <Loader />}
-          <Border>
-            <h3>{product.name}</h3>
-            <p>{product.price} kr</p>
-            <div>
-              <p>Designer:</p>
-              <p>{product.designerName}</p>
-            </div>
-            <div>
-              <p>Dimensions:</p> 
-              <p>{product.dimensions}</p>
-            </div>
-            {addedToCart && 
-              <p>Product is added to cart!</p>}
-            <ButtonWrapper>
-              <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
-              <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
-            </ButtonWrapper>
-          </Border>
-        </InfoWrapper>
-        {error && 
-          <p>No product details were found. Please try loading the page again.</p>}
-      </ProductDetailsCard>
+      {isLoading ? ( <Loader /> ) : (
+        <ProductDetailsCard>
+          <ProductImage src={product.imageUrl} alt={product.name} />
+          <InfoWrapper>
+            <Border>
+              <ProductName>{product.name}</ProductName>
+              <ProductText>{product.price} kr</ProductText>
+              <div>
+                <ProductText>Designer:</ProductText>
+                <ProductText>{product.designerName}</ProductText>
+              </div>
+              <div>
+                <ProductText>Dimensions:</ProductText> 
+                <ProductText>{product.dimensions}</ProductText>
+              </div>
+              {addedToCart && 
+                <p>Product is added to cart!</p>}
+              <ButtonWrapper>
+                <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
+                <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
+              </ButtonWrapper>
+            </Border>
+          </InfoWrapper>
+          {error && 
+            <p>No product details were found. Please try loading the page again.</p>}
+        </ProductDetailsCard>
+      )}
     </ProductPageContainer>
   )
 }
@@ -114,7 +115,7 @@ const InfoWrapper = styled.div`
   @media (min-width: 700px){
     background: #cdd0cb;
     padding: 40px;
-    width: 50%;
+    width: 70%;
     height: 100%;
     color: white;
   }
@@ -122,14 +123,6 @@ const InfoWrapper = styled.div`
 
 const Border = styled.div`
   border: none;
-  h3{
-    font-size: 18px;
-    letter-spacing: 1.5px;
-  }
-  p{
-    font-size: 16px;
-    letter-spacing: 1.5px;
-  }
   @media (min-width: 700px){
     border: 0.5px solid whitesmoke;
     height: 100%;
@@ -137,6 +130,16 @@ const Border = styled.div`
     flex-direction: column;
     padding: 40px;
   }
+`
+
+const ProductName = styled.h3`
+  font-size: 18px;
+  letter-spacing: 1.5px;
+`
+
+const ProductText = styled.p`
+  font-size: 16px;
+  letter-spacing: 1.5px;
 `
 
 const ProductImage = styled.img`
