@@ -11,8 +11,7 @@ const initialState = {
     city: null,
     phoneNumber: null,
     statusMessage: null,
-    errorMessage: null,
-    favourites: []
+    errorMessage: null
   }
 }
 
@@ -22,12 +21,10 @@ export const user = createSlice({
   reducers: {
     setAccessToken: (state, action) => {
       const { accessToken } = action.payload
-      console.log(accessToken)
       state.login.accessToken = accessToken
     },
     setUserId: (state, action) => {
       const { userId } = action.payload
-      console.log(userId)
       state.login.userId = userId
     },
     setName: (state, action) => {
@@ -60,7 +57,6 @@ export const user = createSlice({
     },
     setErrorMessage: (state, action) => {
       const { errorMessage } = action.payload
-      console.log(errorMessage)
       state.login.errorMessage = errorMessage
     },
     setLogOut: (state) => {

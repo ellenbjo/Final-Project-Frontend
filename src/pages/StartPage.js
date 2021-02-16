@@ -4,20 +4,19 @@ import styled from 'styled-components'
 
 import { ImageCard } from '../lib/reusable/ImageCard'
 import { ColorCard } from '../lib/reusable/ColorCard'
+import { StartPageLinkText} from '../lib/reusable/StartPageLinkText'
 
 export const StartPage = () => {
   return (
     <StartPageContainer>
       <HeroSection>
-        <HeroText>
-          <h1>
-            NEW ARRIVALS
-          </h1>
-          <p>Carefully selected designs</p>
+        <HeroTextContainer>
+          <HeroHeadline>NEW ARRIVALS</HeroHeadline>
+          <HeroText>Carefully selected designs</HeroText>
           <Link to="/products">
-            <LinkText>Shop products</LinkText>
+            <StartPageLinkText text="Shop products" />
           </Link>
-        </HeroText>
+        </HeroTextContainer>
       </HeroSection>
       <SecondSection>
         <ImageCard text="Shop vases" path="/products" imageUrl="https://res.cloudinary.com/dztqyanvb/image/upload/v1612278091/products/pexels-elika-margaretha-4898516_xuavth.jpg" />
@@ -49,31 +48,21 @@ const HeroSection = styled.div`
   color: whitesmoke;
 `
 
-const HeroText = styled.div`
+const HeroTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1{
-    font-size: 40px;
-    font-weight: lighter;
-    letter-spacing: 1px;
-    margin-bottom: 0;
-  } 
-  p{
-    font-size: 20px;
-  }
 `
 
-const LinkText = styled.h2`
-  font-size: 20px;
-  border: 0.3px solid whitesmoke;
-  padding: 17px 24px;
-  color: whitesmoke;
+const HeroHeadline = styled.h1`
+  font-size: 40px;
   font-weight: lighter;
-  transition: ease 0.5s;
-  :hover{
-    background: rgba(46, 49, 49, 0.5);
-  }
+  letter-spacing: 1px;
+  margin-bottom: 0; 
+`
+
+const HeroText = styled.p`
+  font-size: 20px;
 `
 
 const SecondSection = styled.div`

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Fade from 'react-reveal'
 import styled from 'styled-components'
 
-import { ui } from '../reducers/ui'
 import { 
   ProductsPageContainer,
   AllProductsContainer,
@@ -13,8 +11,7 @@ import {
 import { Loader } from '../components/Loader'
 
 export const Designers = () => {
-  const dispatch = useDispatch()
-  const isLoading = useSelector((store) => store.ui.loading)
+  const [isLoading, setIsLoading] = useState(false)
   const [designers, setDesigners] = useState([])
   const [error, setError] = useState('')
 
@@ -24,17 +21,17 @@ export const Designers = () => {
     fetch(URL)
       .then((response) => response.json())
       .then((json) => {
-        dispatch(ui.actions.setLoading(false))
+        setIsLoading(false)
         setDesigners(json)
       })
       .catch((err) => {
-        dispatch(ui.actions.setLoading(false))
+        setIsLoading(false)
         setError(err)
       })
   }
 
   useEffect(() => {
-    dispatch(ui.actions.setLoading(true))
+    setIsLoading(true)
     fetchDesigners()
   }, [])
 
@@ -70,9 +67,11 @@ const AllDesignersContainer = styled(AllProductsContainer)`
   @media (min-width: 1024px){
     width: 60%;
   }
+  //Fade component
   div{
     width: 100%;
   }
+  //Link component
   a{
     width: 100%;
     display: flex;
@@ -90,14 +89,14 @@ const DesignerCard = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  background-image: ${({ imgUrl }) => `url(${imgUrl})`};
-  height: 300px;
   justify-content: center;
+  background-image: ${({ imgUrl }) => `url(${imgUrl})`};
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
   h3{
     font-size: 20px;
-  }
-  @media (min-width: 700px){
-    background-position: center;
   }
 `
 

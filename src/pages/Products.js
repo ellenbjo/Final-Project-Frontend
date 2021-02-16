@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Fade from 'react-reveal'
 
-import { ui } from '../reducers/ui'
 import {
   ProductsPageContainer,
   PageHeader,
@@ -16,8 +14,7 @@ import {
 import { Loader } from '../components/Loader'
 
 export const Products = () => {
-  const dispatch = useDispatch()
-  const isLoading = useSelector((store) => store.ui.loading)
+  const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState([])
   const [error, setError] = useState('')
 
@@ -27,17 +24,17 @@ export const Products = () => {
     fetch(URL)
       .then((response) => response.json())
       .then((json) => {
-        dispatch(ui.actions.setLoading(false))
+        setIsLoading(false)
         setProducts(json)
       })
       .catch((err) => {
-        dispatch(ui.actions.setLoading(false))
+        setIsLoading(false)
         setError(err)
       })
   }
 
   useEffect(() => {
-    dispatch(ui.actions.setLoading(true))
+    setIsLoading(true)
     fetchProducts()
   }, [setProducts])
 

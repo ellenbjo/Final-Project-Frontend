@@ -44,7 +44,7 @@ if (persistedStateJSON) {
   persistedState = JSON.parse(persistedStateJSON)
 }
 
-//using the persistedState instead of the initalstate
+//using the persistedState instead of the initialstate
 const store = createStore(
   reducer,
   persistedState,

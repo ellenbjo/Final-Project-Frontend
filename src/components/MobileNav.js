@@ -61,6 +61,10 @@ const LinkText = styled.p`
   font-size: 20px;
   color: whitesmoke;
   margin-bottom: 0;
+  transition: ease 0.5s;
+  :hover{
+    text-decoration: underline;
+  }
 `
 
 const LinkWrapper = styled.div`

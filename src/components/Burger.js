@@ -23,9 +23,6 @@ const BurgerMenu = styled.button`
   z-index: 10;
   margin-left: 20px;
   margin-right: 15px;
-  @media (min-width: 1024px){
-    display: none;
-  }
   &:focus {
     outline: none;
   }
@@ -47,5 +44,8 @@ const BurgerMenu = styled.button`
     :nth-child(3) {
       transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
+  }
+  @media (min-width: 1024px){
+    display: none;
   }
 `

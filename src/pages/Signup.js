@@ -77,6 +77,8 @@ export const Signup = () => {
             <InputField
               value={name}
               required
+              minlength="2"
+              placeholder="First and last Name"
               onChange={(event) => setName(event.target.value)} />
           </Label>
           <Label>
@@ -84,6 +86,7 @@ export const Signup = () => {
             <InputField
               type="email"
               required
+              placeholder="Email"
               value={email}
               onChange={(event) => setEmail(event.target.value)} />
           </Label>
@@ -92,6 +95,9 @@ export const Signup = () => {
             <InputField
               type="password"
               required
+              minlength="4"
+              maxlength="12"
+              placeholder="Between 4-12 characters"
               value={password}
               onChange={(event) => setPassword(event.target.value)} />
           </Label>
@@ -100,6 +106,7 @@ export const Signup = () => {
             <InputField
               value={street}
               required
+              placeholder="Street"
               onChange={(event) => setStreet(event.target.value)} />
           </Label>
           <Label>
@@ -107,6 +114,7 @@ export const Signup = () => {
             <InputField
               value={postalCode}
               required
+              placeholder="Postal Code"
               onChange={(event) => setPostalCode(event.target.value)} />
           </Label>
           <Label>
@@ -115,6 +123,7 @@ export const Signup = () => {
               type="text"
               value={city}
               required
+              placeholder="City"
               onChange={(event) => setCity(event.target.value)} />
           </Label>
           <Label>
@@ -122,6 +131,7 @@ export const Signup = () => {
             <InputField
               value={phoneNumber}
               required
+              placeholder="Phone Number"
               onChange={(event) => setPhoneNumber(event.target.value)} />
           </Label>
           <Button type="submit" text="Sign up" />

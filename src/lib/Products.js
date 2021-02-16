@@ -24,7 +24,7 @@ export const AllProductsContainer = styled.section`
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  @media (min-width: 1024px){
+  @media (min-width: 1200px){
     width: 80%;
   }
   @media (min-width: 1500px){

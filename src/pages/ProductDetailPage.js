@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { cart } from '../reducers/cart'
-import { ui } from '../reducers/ui'
 import { Button } from '../lib/reusable/Button'
 import { Loader } from '../components/Loader'
 
 export const ProductDetailPage = () => {
   const dispatch = useDispatch()
-  const isLoading = useSelector((store) => store.ui.loading)
   const history = useHistory()
   const { productId } = useParams()
+  const [isLoading, setIsLoading] = useState(false)
   const [product, setProduct] = useState([])
   const [addedToCart, setAddedToCart] = useState(false)
   const [error, setError] = useState('')
@@ -23,17 +22,17 @@ export const ProductDetailPage = () => {
     fetch(URL)
       .then((response) => response.json())
       .then((json) => {
-        dispatch(ui.actions.setLoading(false))
+        setIsLoading(false)
         setProduct(json)
       })
       .catch((err) => {
-        dispatch(ui.actions.setLoading(false))
+        setIsLoading(false)
         setError(err)
       })
   }
 
   useEffect(() => {
-    dispatch(ui.actions.setLoading(true))
+    setIsLoading(true)
     fetchProductDetails(productId)
   }, [productId])
 
@@ -54,25 +53,24 @@ export const ProductDetailPage = () => {
   return (
     <ProductPageContainer>
       <ProductDetailsCard>
-        <>
-          <ProductImage src={product.imageUrl} alt={product.name} />
-          <InfoWrapper>
-            {isLoading && <Loader />}
-            <Border>
-              <h3>{product.name}</h3>
-              <p>{product.price} kr</p>
-              <p>Designer: {product.designerName}</p>
-              <p>Dimensions: {product.dimensions}</p>
-              {addedToCart && 
-                <p>Product is added to cart!</p>}
-              <ButtonWrapper>
-                <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
-                <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
-              </ButtonWrapper>
-            </Border>
-          </InfoWrapper>
-          {error && <p>No product details were found. Please try loading the page again.</p>}
-        </>
+        <ProductImage src={product.imageUrl} alt={product.name} />
+        <InfoWrapper>
+          {isLoading && <Loader />}
+          <Border>
+            <h3>{product.name}</h3>
+            <p>{product.price} kr</p>
+            <p>Designer: {product.designerName}</p>
+            <p>Dimensions: {product.dimensions}</p>
+            {addedToCart && 
+              <p>Product is added to cart!</p>}
+            <ButtonWrapper>
+              <Button type="button" text="Add to cart" onButtonClick={handleAddToCart} />
+              <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
+            </ButtonWrapper>
+          </Border>
+        </InfoWrapper>
+        {error && 
+          <p>No product details were found. Please try loading the page again.</p>}
       </ProductDetailsCard>
     </ProductPageContainer>
   )

@@ -63,6 +63,7 @@ const CartPageContainer = styled.section`
   align-items: center;
   padding-bottom: 50px;
 `
+
 const CartContainer = styled.section`
   display: flex;
   flex-direction: column;
