@@ -6,6 +6,7 @@ import { CartItem } from './CartItem'
 
 export const CartProducts = () => {
   const products = useSelector((store) => store.cart.products)
+  
   return (
     <ProductContainer products={products}>
       {products.map((product) => (

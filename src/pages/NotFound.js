@@ -29,10 +29,10 @@ const NotFoundContainer = styled.section`
   align-items: center;
   button {
     width: 80%;
-    @media (min-width: 700px){
+    @media (min-width: 700px) {
       width: 50%;
     }
-    @media (min-width: 1024px){
+    @media (min-width: 1024px) {
       width: 20%;
     }
   }

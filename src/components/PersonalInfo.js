@@ -25,7 +25,7 @@ const Bold = styled.span`
 const Border = styled.div`
   border: 0.5px solid whitesmoke;
   padding: 20px;
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 90%;
   }
 `

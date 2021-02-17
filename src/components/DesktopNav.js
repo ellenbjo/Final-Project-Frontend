@@ -24,11 +24,11 @@ export const DesktopNav = () => {
 
 const NavContainer = styled.nav`
   display: none;
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     background: #cdd0cb;
     display: flex;
     justify-content: center;
-    div{
+    div {
       display: flex;
       width: 60%;
       justify-content: flex-start;
@@ -44,7 +44,7 @@ const SlashSign = styled.span`
 const LinkText = styled.p`
   font-weight: 600;
   letter-spacing: 1.5px;
-  :hover{
+  :hover {
     text-decoration: underline;
   }
 `

@@ -98,12 +98,12 @@ const ProfilePageContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  button{
+  button {
     width: 70%;
-    @media (min-width: 700px){
+    @media (min-width: 700px) {
       width: 50%;
     }
-    @media (min-width: 1024px){
+    @media (min-width: 1024px) {
       width: 30%;
     }
   }
@@ -115,10 +115,10 @@ const PersonalInfoContainer = styled.div`
   color: whitesmoke;
   background: #91A5A1;
   padding: 20px;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     width: 50%;
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 30%;
     align-items: center;
     padding-top: 40px;
@@ -128,7 +128,7 @@ const PersonalInfoContainer = styled.div`
 const Border = styled.div`
   border: 0.5px solid whitesmoke;
   padding: 20px;
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 90%;
   }
 `

@@ -15,14 +15,15 @@ export const MobileNav = ({ open, setOpen }) => {
         <Link to="/designers" onClick={() => setOpen(false)}>
           <LinkText>Designers</LinkText>
         </Link>
-        {!accessToken &&
+        {!accessToken ? (
           <Link to="/login" onClick={() => setOpen(false)}>
             <LinkText>Log in</LinkText>
-          </Link>}
-        {accessToken &&
+          </Link>
+        ) : (
           <Link to="/user/profile" onClick={() => setOpen(false)}>
             <LinkText>My Page</LinkText>
-          </Link>}
+          </Link>
+        )}
         <Link to="/cart" onClick={() => setOpen(false)}>
           <LinkText>Cart</LinkText>
         </Link>
@@ -49,10 +50,10 @@ const Nav = styled.nav`
   top: 0;
   left: 0;
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     width: 60%;
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     display: none;
   }
 `
@@ -62,7 +63,7 @@ const LinkText = styled.p`
   color: whitesmoke;
   margin-bottom: 0;
   transition: ease 0.5s;
-  :hover{
+  :hover {
     text-decoration: underline;
   }
 `

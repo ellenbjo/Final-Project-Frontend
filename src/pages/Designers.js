@@ -65,17 +65,17 @@ const DesignersPageContainer = styled(ProductsPageContainer)`
 
 const AllDesignersContainer = styled(AllProductsContainer)`
   //Fade component
-  div{
+  div {
     width: 100%;
   }
   //Link component
-  a{
+  a {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 10px;
-    @media (min-width: 700px){
+    @media (min-width: 700px) {
       width: 45%;
       margin: 10px;
     }
@@ -92,7 +92,7 @@ const DesignerCard = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   height: 300px;
-  h3{
+  h3 {
     font-size: 20px;
   }
 `
@@ -105,7 +105,7 @@ const TextBox = styled.span`
   min-width: fit-content;
   padding: 0px 20px;
   transition: ease 0.5s;
-  :hover{
+  :hover {
     background: rgba(46, 49, 49, 0.3);
   }
 `

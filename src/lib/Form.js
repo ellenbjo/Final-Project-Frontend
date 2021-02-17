@@ -6,15 +6,15 @@ export const Form = styled.form`
   background: #cdd0cb;
   width: 80%;
   padding: 20px;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     align-items: center;
     width: 60%;
   }
-  @media (min-width: 1024px){
-    align-items: center;
+  @media (min-width: 1024px) {
     width: 30%;
   }
 `
+
 export const FormContainer = styled.section`
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ export const Label = styled.label`
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     width: 70%;
   }
 `
@@ -35,6 +35,9 @@ export const InputField = styled.input`
   border: none;
   height: 30px;
   outline: none;
+  :focus {
+    border: solid 0.5px #91a5a1
+  }
 `
 
 export const LoggedIn = styled.div`
@@ -42,12 +45,12 @@ export const LoggedIn = styled.div`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  div{
+  div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 70%;
-    @media (min-width: 1024px){
+    @media (min-width: 1024px) {
       width: 40%;
     }
   }

@@ -29,10 +29,10 @@ const TextContainer = styled.div`
   width: 80%;
   word-wrap: break-word;
   padding: 50px;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     width: 60%;
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 30%;
   }
 `

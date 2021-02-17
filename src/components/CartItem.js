@@ -47,7 +47,7 @@ const CartProduct = styled.div`
   width: 70%;
   padding-top: 20px;
   margin-bottom: 20px;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     flex-direction: row;
     height: 300px;
     width: 40%;
@@ -56,7 +56,7 @@ const CartProduct = styled.div`
     padding-top: 0;
     align-items: normal;
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 33%;
     margin-left: 0;
     margin-right: 0;
@@ -67,10 +67,10 @@ const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 90%;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     width: 60%;
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 50%;
   }
 `
@@ -79,7 +79,7 @@ const ProductImage = styled.img`
   width: 100%;
   height: 400px;
   object-fit: cover;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     width: 100%;
     height: 100%;
   }
@@ -90,14 +90,14 @@ const ProductInfo = styled.div`
   flex-direction: column;
   align-items: center;
   font-size: 16px;
-  div{
+  div {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     font-size: 27px;
     padding-bottom: 10px;
   }
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     align-items: baseline;
     justify-content: center;
     margin-left: 10px;
@@ -108,7 +108,7 @@ const ProductInfo = styled.div`
 const QuantityButton = styled.button`
   background: whitesmoke;
   border: none;
-  &:focus{
+  &:focus {
     outline: dotted #91a5a1 0.5px;
   }
 `

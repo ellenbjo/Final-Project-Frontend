@@ -55,7 +55,7 @@ export const ProductDetailPage = () => {
       {isLoading ? ( <Loader /> ) : (
         <ProductDetailsCard>
           <ProductImage src={product.imageUrl} alt={product.name} />
-          <InfoWrapper>
+          <ProductInfoWrapper>
             <Border>
               <ProductName>{product.name}</ProductName>
               <ProductText>{product.price} kr</ProductText>
@@ -74,7 +74,7 @@ export const ProductDetailPage = () => {
                 <Button type="button" text="Continue shopping" onButtonClick={handleGoToProducts} />
               </ButtonWrapper>
             </Border>
-          </InfoWrapper>
+          </ProductInfoWrapper>
           {error && 
             <p>No product details were found. Please try loading the page again.</p>}
         </ProductDetailsCard>
@@ -98,21 +98,21 @@ const ProductDetailsCard = styled.div`
   display: flex; 
   flex-direction: column; 
   align-items: center;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     flex-direction: row;
     width: 95%;
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 60%;
   }
-  @media (min-width: 1500px){
+  @media (min-width: 1500px) {
     width: 50%;
   }
 `
 
-const InfoWrapper = styled.div`
+const ProductInfoWrapper = styled.div`
   width: 90%;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     background: #cdd0cb;
     padding: 40px;
     width: 70%;
@@ -123,7 +123,7 @@ const InfoWrapper = styled.div`
 
 const Border = styled.div`
   border: none;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     border: 0.5px solid whitesmoke;
     height: 100%;
     display: flex;
@@ -145,7 +145,7 @@ const ProductText = styled.p`
 const ProductImage = styled.img`
   width: 90%;
   object-fit: cover;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     width: 50%; 
     padding: 20px;
   }
@@ -155,11 +155,11 @@ const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     padding-top: 40px;
     align-items: center;
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     padding-top: 60px;
   }
 `

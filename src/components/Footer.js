@@ -42,7 +42,7 @@ const CustomFooter = styled.footer`
   background: #91A5A1;
   margin-top: 20px;
   padding-bottom: 100px;
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     justify-content: center;
   }
 `
@@ -51,7 +51,7 @@ const ListContainer = styled.div`
   padding: 20px;
   font-size: 17px;
   opacity: 0.8;  
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     padding-left: 0;
     width: 60%;
   }
@@ -59,8 +59,8 @@ const ListContainer = styled.div`
 
 const List = styled.ul`
   padding-left: 0;
-  a{
-    :hover{
+  a {
+    :hover {
       text-decoration: underline;
     }
   }

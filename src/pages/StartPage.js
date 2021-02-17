@@ -70,25 +70,25 @@ const SecondSection = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1700px;
-  div{
-    :nth-of-type(3){
+  div {
+    :nth-of-type(3) {
         display: none;
     }
   }
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     flex-direction: row;
     flex-wrap: wrap;
     padding-top: 20px;
-    div{
-      :nth-of-type(3){
+    div {
+      :nth-of-type(3) {
           display: flex;
       }
     }
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     align-self: center;
     div{
-      :nth-of-type(3){
+      :nth-of-type(3) {
           display: none;
       }
     }

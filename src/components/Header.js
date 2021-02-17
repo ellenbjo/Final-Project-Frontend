@@ -53,6 +53,7 @@ const CustomHeader = styled.header`
   flex-direction: column;
   width: 100%;
 `
+
 const TopMenuWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -60,7 +61,7 @@ const TopMenuWrapper = styled.div`
   background: #e8eae6;
   width: 100%;
   font-size: 18px;
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 60%;
   }
 `
@@ -68,25 +69,27 @@ const TopMenuWrapper = styled.div`
 const TopSection = styled.div`
   display: flex;
   align-items: center;
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     justify-content: center;
   }
 `
+
 const List = styled.ul`
   display: flex;
   a {
-    :first-child{
+    :first-child {
       display: none;
     }
   }
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     a {
-      :first-child{
+      :first-child {
         display: flex;
       }
     }
   }
 `
+
 const LinkText = styled.li`
   margin-right: 20px;
   display: flex;
@@ -94,6 +97,7 @@ const LinkText = styled.li`
   align-items: center;
   letter-spacing: 1px;
 `
+
 const CompanyName = styled.h2`
   color: ${({ open }) => open ? 'whitesmoke' : '#91A5A1'};
   font-family:'Bodoni Moda', serif;
@@ -101,10 +105,10 @@ const CompanyName = styled.h2`
   position: relative;
   z-index: 1;
   letter-spacing: 3px;
-  ::first-letter{
+  ::first-letter {
     font-size: 150%;
   }
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     font-size: 30px;
   }
 `

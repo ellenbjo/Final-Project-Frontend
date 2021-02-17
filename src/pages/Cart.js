@@ -68,10 +68,10 @@ const CartContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 80%;
   } 
-  @media (min-width: 1500px){
+  @media (min-width: 1500px) {
     width: 50%;
   } 
 `
@@ -79,7 +79,7 @@ const CartContainer = styled.section`
 const EmptyCartContainer = styled(CartContainer)`
   justify-content: center;
   width: 60%;
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     width: 40%;
   }
 `

@@ -30,6 +30,7 @@ const CustomButton = styled.button`
   }
   :focus{
     outline: none;
+    background: #aaaaaa;
   }
   :active{
     background: #aaaaaa;

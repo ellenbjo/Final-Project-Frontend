@@ -37,6 +37,10 @@ a:visited, a:active {
   color: #555555;
 }
 
+a:focus {
+  outline: solid 0.5px #91a5a1;
+}
+
 ul {
   list-style-type: none;
 }
@@ -44,4 +48,3 @@ ul {
 h2, h3 {
   font-weight: 200;
 }
-

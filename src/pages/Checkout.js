@@ -130,15 +130,15 @@ const CheckBoxContainer = styled.form`
   flex-direction: column;
   align-items: center;
   width: 90%;
-  div{
-    :last-of-type{
+  div {
+    :last-of-type {
       width: 80%;
       display: flex;
       justify-content: center;
-      @media (min-width: 700px){
+      @media (min-width: 700px) {
         width: 50%;
       }
-      @media (min-width: 1024px){
+      @media (min-width: 1024px) {
         width: 40%;
       }
     }
@@ -149,8 +149,8 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
-  span{
-    :first-child{
+  span {
+    :first-child {
       padding: 8px;
     }
   }

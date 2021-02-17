@@ -19,6 +19,7 @@ const LinkContainer = styled.div`
   display: flex;
   justify-content: center;
 `
+
 const LinkText = styled.h2`
   margin: 20px;
 `
