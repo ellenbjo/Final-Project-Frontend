@@ -6,7 +6,7 @@ import { ReactComponent as Plus } from '../svg:s/plus.svg'
 import { ReactComponent as Minus } from '../svg:s/minus.svg'
 import { cart } from '../reducers/cart'
 
-export const CartItem = ({ product }) => {
+export const CartItem = ({ product, products }) => {
   const dispatch = useDispatch()
 
   const increaseQuantity = () => {
@@ -18,7 +18,7 @@ export const CartItem = ({ product }) => {
   }
 
   return (
-    <CartProduct>
+    <CartProduct products={products}>
       <ImageWrapper>
         <ProductImage src={product.imageUrl} alt={product.name} />
       </ImageWrapper>
@@ -60,6 +60,7 @@ const CartProduct = styled.div`
   @media (min-width: 1024px) {
     min-width: 33%;
     width: 33%;
+    width: ${({ products }) => products.length === 1 ? '43%' : '33%'};
     height: 40vh;
     margin-left: 0;
     margin-right: 0;

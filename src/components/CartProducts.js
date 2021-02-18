@@ -10,7 +10,7 @@ export const CartProducts = () => {
   return (
     <ProductContainer products={products}>
       {products.map((product) => (
-        <CartItem key={product.id} product={product} />
+        <CartItem key={product.id} product={product} products={products}/>
       ))}
     </ProductContainer>
   )
