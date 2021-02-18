@@ -44,13 +44,14 @@ const CartProduct = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 90%;
+  height: 85vh;
   padding-top: 20px;
   margin-bottom: 20px;
   @media (min-width: 700px) {
     flex-direction: row;
-    height: 300px;
     width: 40%;
+    height: 50vh;
     margin-left: 20px;
     margin-right: 20px;
     padding-top: 0;
@@ -71,15 +72,16 @@ const ImageWrapper = styled.div`
     width: 60%;
   }
   @media (min-width: 1024px) {
-    width: 50%;
+    width: 60%;
   }
 `
 
 const ProductImage = styled.img`
   width: 100%;
-  height: 400px;
-  object-fit: cover;
+  height: 60vh;
+  object-fit: contain;
   @media (min-width: 700px) {
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }

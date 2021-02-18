@@ -37,6 +37,7 @@ export const ProductCard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  min-height: 60vh;
   margin: 10px;
   @media (min-width: 700px) {
     width: 30%;
