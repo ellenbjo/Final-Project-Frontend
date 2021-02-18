@@ -50,15 +50,17 @@ const CartProduct = styled.div`
   margin-bottom: 20px;
   @media (min-width: 700px) {
     flex-direction: row;
-    width: 40%;
-    height: 50vh;
+    width: 80%;
+    height: 75vh;
     margin-left: 20px;
     margin-right: 20px;
     padding-top: 0;
     align-items: normal;
   }
   @media (min-width: 1024px) {
+    min-width: 33%;
     width: 33%;
+    height: 40vh;
     margin-left: 0;
     margin-right: 0;
   }
