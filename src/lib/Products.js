@@ -47,6 +47,10 @@ export const ProductCard = styled.div`
     width: 25%;
     min-height: 40vh;
   }
+  @media (min-width: 1500px) {
+    width: 25%;
+    min-height: 45vh;
+  }
 `
 
 export const ProductImage = styled.img`
