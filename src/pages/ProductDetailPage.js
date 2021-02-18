@@ -145,6 +145,7 @@ const ProductText = styled.p`
 
 const ProductImage = styled.img`
   width: 90%;
+  max-height: 80vh;
   object-fit: cover;
   @media (min-width: 700px) {
     width: 50%; 
