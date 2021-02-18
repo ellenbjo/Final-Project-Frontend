@@ -98,6 +98,9 @@ const DesignerCard = styled.div`
   h3 {
     font-size: 20px;
   }
+  @media (min-width: 1600px) {
+    height: 400px;
+  }
 `
 
 const TextBox = styled.span`
