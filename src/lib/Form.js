@@ -12,6 +12,8 @@ export const Form = styled.form`
   }
   @media (min-width: 1024px) {
     width: 30%;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 `
 

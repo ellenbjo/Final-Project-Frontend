@@ -81,8 +81,8 @@ const EmptyCartContainer = styled(CartContainer)`
   width: 60%;
   @media (min-width: 1024px) {
     width: 40%;
-    padding-top: 3.125rem;
-    padding-bottom: 3.125rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 `
 
