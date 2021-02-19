@@ -10,7 +10,6 @@ export const Button = ({ text, onButtonClick, type }) => {
 }
 
 const CustomButton = styled.button`
-  //remove default styling
   font-family: inherit; 
   font-size: 100%; 
   line-height: 1.15; 
@@ -18,7 +17,6 @@ const CustomButton = styled.button`
   text-transform: none;
   overflow: visible;
   -webkit-appearance: button;
-  //custom styling
   background: #555555; 
   color: whitesmoke;
   border: 0;
@@ -28,11 +26,7 @@ const CustomButton = styled.button`
   @media (min-width: 700px){
     width: 70%;
   }
-  :focus{
-    outline: none;
-    background: #aaaaaa;
-  }
-  :active{
+  :active, &:hover, :focus{
     background: #aaaaaa;
   }
 `
