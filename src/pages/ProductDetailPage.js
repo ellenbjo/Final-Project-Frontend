@@ -42,7 +42,8 @@ export const ProductDetailPage = () => {
       id: product._id,
       name: product.name,
       imageUrl: product.imageUrl,
-      price: product.price
+      price: product.price,
+      quantity: 1
     }))
     setAddedToCart(true)
   }
